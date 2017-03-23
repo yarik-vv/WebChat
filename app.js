@@ -1,3 +1,4 @@
+//default
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -5,6 +6,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//my
+const config = require('./config');
+const debug = require('debug')(app);
+const http = require('http');
+var log = require('./libs/log')(module);
+
+//router
 var login = require('./routes/login');
 var webchat = require('./routes/webchat');
 
@@ -23,14 +31,18 @@ if (app.get('env') == 'development') {
 } else {
   app.use(logger('tiny'));
 }
-//parsers
+
+//body razbitaet zaprosu get/post i parsit
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//cookie parsit zagolovok
 app.use(cookieParser());
 
 //bublic path
 app.use(express.static(path.join(__dirname, 'public')));
 
+//router
 app.use('/', login);
 app.use('/webchat', webchat);
 
@@ -60,4 +72,7 @@ app.use(function(err, req, res, next) {
   }
 });
 
-module.exports = app;
+var server = http.createServer(app);
+server.listen(config.get('port'), function(){
+  log.info('Server listening on http://127.0.0.1:' + config.get('port'));
+});
