@@ -8,6 +8,10 @@ const bodyParser = require('body-parser');
 
 //my
 const config = require('./config');
+
+const session = require('express-session');
+const sessionStore = require('./libs/sessionStore');
+
 const debug = require('debug')(app);
 const http = require('http');
 const log = require('./libs/log')(module);
@@ -41,6 +45,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //cookie parsit zagolovok
 app.use(cookieParser());
+
+//sesion
+app.use(session({
+  secret: config.get('session:secret'), // ABCDE242342342314123421.SHA256
+  resave: false,
+  saveUninitialized: true,
+  key: config.get('session:key'),
+  cookie: config.get('session:cookie'),
+  store: sessionStore
+}));
 
 //bublic path
 app.use(express.static(path.join(__dirname, 'public')));

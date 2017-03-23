@@ -25,7 +25,7 @@ body{
   background-size: cover;
 }
 
-form[action="login"]{
+form[name="login"]{
   width: 50vh;
   
   display: flex;
@@ -36,7 +36,7 @@ form[action="login"]{
   top: -5vh;
 }
 
-form[action="login"] input{
+form[name="login"] input{
   width: 100%;
   outline: none;
   border: none;
@@ -46,18 +46,18 @@ form[action="login"] input{
   font-size: 3vh;
 }
 
-form[action="login"] input[type="text"]{
+form[name="login"] input[type="text"]{
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 }
 
-form[action="login"] input[type="password"]{
+form[name="login"] input[type="password"]{
   margin-top: 1.5px;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
 }
 
-form[action="login"] button{
+form[name="login"] button{
   height: 6vh;
   width: 6vh;
   background: none;
