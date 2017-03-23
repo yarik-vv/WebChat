@@ -5,7 +5,7 @@ html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-input,div,h1,p{
+form,input,div,h1,p,ul{
   margin: 0;
   padding: 0;
 }
@@ -25,7 +25,7 @@ body{
   background-size: cover;
 }
 
-form{
+form[action="login"]{
   width: 50vh;
   
   display: flex;
@@ -36,7 +36,7 @@ form{
   top: -5vh;
 }
 
-input{
+form[action="login"] input{
   width: 100%;
   outline: none;
   border: none;
@@ -46,18 +46,18 @@ input{
   font-size: 3vh;
 }
 
-input[type="text"]{
+form[action="login"] input[type="text"]{
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 }
 
-input[type="password"]{
+form[action="login"] input[type="password"]{
   margin-top: 1.5px;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
 }
 
-button{
+form[action="login"] button{
   height: 6vh;
   width: 6vh;
   background: none;
@@ -70,6 +70,7 @@ button{
   
   border-radius: 50px;
   font-size: 5vh;
+  color: gray;
 }
 
 .signin{ 
@@ -95,5 +96,11 @@ button{
   color: white;
   font-size: 3.5vh;
 }
+
+
+
+
+
+
 
 

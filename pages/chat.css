@@ -1,0 +1,53 @@
+form[action="webchat"]{
+  width: 80vh;
+  height: 50vh;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  background: white;
+  border-radius: 4px;
+}
+ul{
+  height: 77%;
+/*  border: 1px solid blue;*/
+  padding: 2vh;
+  list-style-type: none;
+}
+header{
+  height: 10%;
+  background: gray;
+/*  border: 1px solid red;*/
+}
+footer{
+  height: 13%;
+  background: gray;
+/*  border: 1px solid green;*/
+  padding: 1vh;
+}
+form[action="webchat"] input{
+  width: 95%;
+  outline: none;
+  border: none;
+  padding: 2vh;
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  font-size: 3vh;
+  border-radius: 8px;
+}
+
+form[action="webchat"] footer button{
+  height: 6vh;
+  width: 6vh;
+  background: none;
+  border: none;
+  
+  position: relative;
+  top: -6.1vh;
+  left: 70vh;
+  
+  border-radius: 50px;
+  font-size: 5vh;
+  color: gray;
+}
