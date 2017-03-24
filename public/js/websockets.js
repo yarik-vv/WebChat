@@ -10,7 +10,13 @@
 
   socket
     .on('message', function(username, message) {
-      printMessage('> ' + message);
+      printMessage(username + '> ' + message);
+    })
+    .on('leave', function(username) {
+        printStatus(username + " вышел из чата", "yellow");
+      })
+    .on('join', function(username) {
+      printStatus(username + " вошёл в чат", "yellow");
     })
     .on('connect', function() {
       printStatus("Соединение установлено", "#d6f1e9");
