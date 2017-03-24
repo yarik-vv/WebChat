@@ -1,4 +1,4 @@
-form[action="webchat"]{
+form[name="webchat"]{
   width: 80vh;
   height: 50vh;
   
@@ -26,7 +26,7 @@ footer{
 /*  border: 1px solid green;*/
   padding: 1vh;
 }
-form[action="webchat"] input{
+form[name="webchat"] input{
   width: 95%;
   outline: none;
   border: none;
@@ -37,7 +37,7 @@ form[action="webchat"] input{
   border-radius: 8px;
 }
 
-form[action="webchat"] footer button{
+form[name="webchat"] footer button{
   height: 6vh;
   width: 6vh;
   background: none;
