@@ -3,7 +3,7 @@ extends layout
 block content
   form(action='webchat')
     header
-      button.icon-login= exit
+      button#logout.icon-login= exit
     ul#room
       li= 1
       li= 2
@@ -15,3 +15,4 @@ block content
         placeholder="Enter your message..."
       )
       button.icon-login
+  script(src='/js/webchat.js')

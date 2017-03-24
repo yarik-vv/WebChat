@@ -20,6 +20,7 @@ const log = require('./libs/log')(module);
 const login = require('./routes/login');
 const webchat = require('./routes/webchat');
 const users = require('./routes/users');
+const logout = require('./routes/logout');
 
 const HttpError = require('./error').HttpError;
 
@@ -64,26 +65,27 @@ app.use(require('./middleware/sendHttpError'));
 app.use('/', login);
 app.use('/webchat', webchat);
 app.use('/users', users);
+app.use('/logout', logout);
 
 // error handler
-app.use(function(err, req, res, next) {
-  if (typeof err == 'number') { // next(404);
-    err = new HttpError(err);
-  }
-
-  if (err instanceof HttpError) {
-    res.sendHttpError(err);
-  } 
-  else {
-    if (app.get('env') == 'development') {
-      express.errorHandler()(err, req, res, next);
-    } else {
-      log.error(err);
-      err = new HttpError(500);
-      res.sendHttpError(err);
-    }
-  }
-});
+//app.use(function(err, req, res, next) {
+//  if (typeof err == 'number') { // next(404);
+//    err = new HttpError(err);
+//  }
+//
+//  if (err instanceof HttpError) {
+//    res.sendHttpError(err);
+//  } 
+//  else {
+//    if (app.get('env') == 'development') {
+//      express.errorHandler()(err, req, res, next);
+//    } else {
+//      log.error(err);
+//      err = new HttpError(500);
+//      res.sendHttpError(err);
+//    }
+//  }
+//});
 
 var server = http.createServer(app);
 server.listen(config.get('port'), function(){
