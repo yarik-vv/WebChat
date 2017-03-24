@@ -60,6 +60,7 @@ app.use(session({
 //bublic path
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(require('./middleware/sendHttpError'));
+app.use(require('./middleware/loadUser'));
 
 //router
 app.use('/', login);
