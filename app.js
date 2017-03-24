@@ -6,12 +6,11 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-//my
+//custom
 const config = require('./config');
-
+const HttpError = require('./error').HttpError;
 const session = require('express-session');
 const sessionStore = require('./libs/sessionStore');
-
 const debug = require('debug')(app);
 const http = require('http');
 const log = require('./libs/log')(module);
@@ -19,11 +18,9 @@ const log = require('./libs/log')(module);
 //router
 const login = require('./routes/login');
 const webchat = require('./routes/webchat');
-const users = require('./routes/users');
 const logout = require('./routes/logout');
+const users = require('./routes/users');
 const error = require('./routes/error');
-
-const HttpError = require('./error').HttpError;
 
 var app = express();
 
@@ -31,13 +28,14 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//load favicon in /public
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 
-//loger
-if (app.get('env') == 'development') {
+// standart loger
+if(app.get('env')=='development') {
   app.use(logger('dev'));
-} else {
+} 
+else{
   app.use(logger('tiny'));
 }
 
@@ -66,34 +64,40 @@ app.use(require('./middleware/loadUser'));
 //router
 app.use('/', login);
 app.use('/webchat', webchat);
-app.use('/users', users);
 app.use('/logout', logout);
+//spisok uzerov
+if(app.get('env')=='development'){
+  app.use('/users', users);
+}
+//if invalid url
 app.use('/*', error);
 
-// error handler
-//app.use(function(err, req, res, next) {
-//  if (typeof err == 'number') { // next(404);
-//    err = new HttpError(err);
-//  }
-//
-//  if (err instanceof HttpError) {
-//    res.sendHttpError(err);
-//  } 
-//  else {
-//    if (app.get('env') == 'development') {
-//      express.errorHandler()(err, req, res, next);
-//    } else {
-//      log.error(err);
-//      err = new HttpError(500);
-//      res.sendHttpError(err);
-//    }
-//  }
-//});
 
-var server = http.createServer(app);
-server.listen(config.get('port'), function(){
-  log.info('Server listening on http://127.0.0.1:' + config.get('port'));
+// error handler
+app.use(function(err, req, res, next) {
+  if (typeof err=='number'){
+    err=new HttpError(err);
+  }
+  if(err instanceof HttpError){
+    res.sendHttpError(err);
+  } 
+  else {
+    if(app.get('env')=='development'){
+      express.errorHandler()(err, req, res, next);} 
+    else{
+      log.error(err);
+      err = new HttpError(500);
+      res.sendHttpError(err);
+    }
+  }
 });
 
+//created http server
+var server = http.createServer(app);
+server.listen(config.get('port'), function(){
+  log.info('Server listening on http://127.0.0.1:'+config.get('port'));
+});
+
+//websockets
 const io = require('./socket')(server);
 app.set('io', io);

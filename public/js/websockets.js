@@ -13,8 +13,8 @@
       printMessage(username + '> ' + message);
     })
     .on('leave', function(username) {
-        printStatus(username + " вышел из чата", "yellow");
-      })
+      printStatus(username + " вышел из чата", "yellow");
+    })
     .on('join', function(username) {
       printStatus(username + " вошёл в чат", "yellow");
     })
@@ -31,21 +31,20 @@
     })
     .on('logout', function() {
       location.href = "/";
-     })
+    })
     .on('error', function(reason) {
-      if (reason == "handshake unauthorized") {
-        printStatus("вы вышли из сайта");
+      if(reason == "handshake unauthorized") {
+        printStatus("Вы вышли из сайта");
       } 
     })
     .on('reconnect_failed', function() {
       printStatus("Соединение разорвано");
-      console.log('connection lost');
     });
 
   const sendMessage = function() {
     const text = input.val();
     socket.emit('message', text, function(data) {
-      printMessage(data);
+      printMessage('you>'+data);
     });
     input.val('');
     return false;

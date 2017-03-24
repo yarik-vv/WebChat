@@ -5,6 +5,5 @@ module.exports = function(req, res, next) {
     res.redirect('/');
     return next(new HttpError(401, "Вы не авторизованы"));
   }
-
   next();
 };

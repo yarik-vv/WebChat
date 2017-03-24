@@ -39,44 +39,36 @@ schema.methods.checkPassword = function(password) {
   return this.encryptPassword(password) === this.hashedPassword;
 };
 
-schema.statics.authorize = (username, password, callback) => {
-   const User = this.User;
+schema.statics.authorize=(username, password) => {
+  const User = this.User;
 
-   return new Promise((resolve, reject) => {
-     User.findOne({username: username}).exec((err, user) => {
-       if (err) {
-         reject(err);
-         callback && callback(err);
-         return;
-       }
+  return new Promise((resolve, reject) => {
+    User.findOne({username: username}).exec((err, user) => {
+      if(err){
+        reject(err);
+      }
 
-       if (user) {
-         if (user.checkPassword(password)) {
-           resolve(user);
-           callback && callback(null, user);
-         } else {
-           reject(new HttpError(403, "Пароль не верен"));
-         }
-         return;
-       } else {
-         user = new User({username: username, password: password});
-         user.save( (err) => {
-           if (!err) {
-             resolve(user);
-             callback && callback(null, user);
-             return;
-           }
-           reject(err);
-         })
-       }
-       return;
-     });
-   });
- };
-
- schema.post('save', function(doc, next) {
-   console.log('%s has been saved', doc._id);
-   next();
- });
+      if(user){
+        if(user.checkPassword(password)){ 
+          resolve(user);
+        }
+        else {
+          reject(new HttpError(403, "Пароль не верен"));  
+        }
+      } 
+      else{
+        user=new User({username: username, password: password});
+        user.save( (err) => {
+          if(!err){
+            resolve(user);
+          }
+          else{
+            reject(err);
+          }
+        })
+      }
+    });
+  });
+};
 
 exports.User = mongoose.model('User', schema);
