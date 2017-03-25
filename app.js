@@ -7,20 +7,20 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 //custom
-const config = require('./config');
-const HttpError = require('./error').HttpError;
+const config = require('config');
+const HttpError = require('error').HttpError;
 const session = require('express-session');
-const sessionStore = require('./libs/sessionStore');
+const sessionStore = require('libs/sessionStore');
 const debug = require('debug')(app);
 const http = require('http');
-const log = require('./libs/log')(module);
+const log = require('libs/log')(module);
 
 //router
-const login = require('./routes/login');
-const webchat = require('./routes/webchat');
-const logout = require('./routes/logout');
-const users = require('./routes/users');
-const error = require('./routes/error');
+const login = require('routes/login');
+const webchat = require('routes/webchat');
+const logout = require('routes/logout');
+const users = require('routes/users');
+const error = require('routes/error');
 
 var app = express();
 
@@ -58,8 +58,8 @@ app.use(session({
 
 //bublic path
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(require('./middleware/sendHttpError'));
-app.use(require('./middleware/loadUser'));
+app.use(require('middleware/sendHttpError'));
+app.use(require('middleware/loadUser'));
 
 //router
 app.use('/', login);
@@ -99,5 +99,5 @@ server.listen(config.get('port'), function(){
 });
 
 //websockets
-const io = require('./socket')(server);
+const io = require('socket')(server);
 app.set('io', io);

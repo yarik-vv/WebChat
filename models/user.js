@@ -1,6 +1,6 @@
 const crypto = require('crypto');
-const HttpError = require('../error').HttpError;
-const mongoose = require('../libs/mongoose');
+const HttpError = require('error').HttpError;
+const mongoose = require('libs/mongoose');
 const Schema = mongoose.Schema;
 
 var schema = new Schema({

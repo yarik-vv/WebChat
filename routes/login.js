@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const User = require('../models/user').User;
-const log = require('../libs/log')(module);
+const User = require('models/user').User;
+const log = require('libs/log')(module);
 
 //get to login page
 router.get('/', function(req, res, next) {

@@ -1,9 +1,9 @@
-const config = require('../config');
-const HttpError = require('../error').HttpError;
-const sessionStore  = require('../libs/sessionStore');
+const config = require('config');
+const HttpError = require('error').HttpError;
+const sessionStore  = require('libs/sessionStore');
 const cookie = require('cookie');
 const cookieParser = require('cookie-parser');
-const User = require('../models/user').User;
+const User = require('models/user').User;
 const debug = require('debug')('socketio');
 
 const loadUser = (session) => {
