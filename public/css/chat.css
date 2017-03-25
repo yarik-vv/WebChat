@@ -1,33 +1,68 @@
 form[name="webchat"]{
-  width: 80vh;
-  height: 50vh;
+  width: 100vh;
+  height: 70vh;
   
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   
-  background: white;
-  border-radius: 4px;
+  background: gray;
+  border-radius: 10px;
 }
 ul{
-  height: 77%;
+  height: 84.5%;
 /*  border: 1px solid blue;*/
   padding: 2vh;
   list-style-type: none;
+  
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+ul li{
+  border: 1px solid red;
+  max-width: 60vh;
+  
+  text-align: left;
+  
+  align-self: center;
+  
+  word-wrap: break-word;
+  padding: 0.5vh;
+  border-radius: 10px;
+  margin: 0.5vh;
+}
+
+.nmy{
+  padding: 1vh;
+  align-self: flex-start;
+  border: 1px solid green;
+}
+
+.my{
+  padding: 1vh;
+  align-self: flex-end;
+  border: 1px solid blue;
 }
 header{
-  height: 10%;
+  height: 6%;
   background: gray;
 /*  border: 1px solid red;*/
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
 }
 footer{
-  height: 13%;
+  height: 9.5%;
   background: gray;
 /*  border: 1px solid green;*/
   padding: 1vh;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 form[name="webchat"] input{
-  width: 95%;
+  width: 96%;
   outline: none;
   border: none;
   padding: 2vh;
@@ -45,7 +80,7 @@ form[name="webchat"] footer button{
   
   position: relative;
   top: -6.1vh;
-  left: 70vh;
+  left: 90vh;
   
   border-radius: 50px;
   font-size: 5vh;
