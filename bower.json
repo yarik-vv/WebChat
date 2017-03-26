@@ -1,0 +1,22 @@
+{
+  "name": "webchat",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Yarik Vashchuck"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/vendor/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "socket.io-client": "^1.7.2",
+    "jquery": "^3.2.1"
+  }
+}
