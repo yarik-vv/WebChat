@@ -94,8 +94,8 @@ app.use(function(err, req, res, next) {
 
 //created http server
 var server = http.createServer(app);
-server.listen(config.get('port'), function(){
-  log.info('Server listening on http://127.0.0.1:'+config.get('port'));
+server.listen((process.env.PORT || 5000), function(){
+  log.info('Server listening on http://127.0.0.1:'+ process.env.PORT);
 });
 
 //websockets
