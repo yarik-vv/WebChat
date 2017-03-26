@@ -1,7 +1,7 @@
 {
   "port": 3000,
   "mongoose": {
-    "uri": "mongodb://localhost/chat",
+    "uri": "mongodb://yarik-vv:1@ds141950.mlab.com:41950/chat",
     "options": {
       "server": {
         "socketOptions": {
