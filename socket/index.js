@@ -5,6 +5,7 @@ const cookie = require('cookie');
 const cookieParser = require('cookie-parser');
 const User = require('models/user').User;
 const debug = require('debug')('socketio');
+const log = require('libs/log')(module);
 
 const loadUser = (session) => {
   return new Promise((resolve, reject) => {
@@ -58,9 +59,9 @@ const checkAuth = (handshake, callback) => {
 
 const socket = (server) => {
   const io = require('socket.io')(server, {
-    'origins': ['127.0.0.1:*', 'localhost:*']
+    'origins': ['yarik-vv.herokuapp.com:*', '127.0.0.1:*', 'localhost:*']
   });
-
+  
   io.use((socket, next) => {
     checkAuth(socket.handshake, (err, success) => {
       if (success) return next();
@@ -74,7 +75,7 @@ const socket = (server) => {
 
   io.on('sessreload', (sid) => {
     console.log('sessreload: ' + sid);
-    //console.log(io.sockets);
+
     io.sockets.clients((err, clients) => {
       if (err) throw err;
 
@@ -103,10 +104,11 @@ const socket = (server) => {
   });
 
   io.on('connection', (socket) => {
+    log.info('CONECTING TO WEBSOCKETS');
     const username = socket.handshake.user.get('username');
-
+    log.info(username);
     socket.broadcast.emit('join', username);
-
+    log.info('join websokets');
     socket.on('message', (text, callback) => {
       socket.broadcast.emit('message', username, text);
       callback && callback(text);
