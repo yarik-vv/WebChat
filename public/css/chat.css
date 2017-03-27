@@ -9,6 +9,7 @@ form[name="webchat"]{
   background: gray;
   border-radius: 10px;
 }
+
 ul{
   height: 84.5%;
 /*  border: 1px solid blue;*/
@@ -85,4 +86,14 @@ form[name="webchat"] footer button{
   border-radius: 50px;
   font-size: 5vh;
   color: gray;
+}
+
+#logout{
+  border: none;
+  width: 20px;
+  height: 20px;
+  background: url(close.svg) no-repeat;
+}
+#logout:hover{
+  background: url(close_hover.svg) no-repeat;
 }
