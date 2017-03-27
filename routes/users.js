@@ -3,6 +3,11 @@ var router = express.Router();
 const User = require('models/user').User;
 const ObjectID = require('mongodb').ObjectID;
 const HttpError = require('error').HttpError;
+const admin = require('middleware/admin');
+
+
+//check authorization
+router.use('/', admin);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
