@@ -12,7 +12,9 @@ block content
           name="message",
           autocomplete="off",
           placeholder="Enter your message...",
+          pattern="[a-zA-Z0-9]+",
           autofocus
+          required
         )
         button.icon-login(type='submit',data-loading-text="Отправляю...")
   script(src='/js/webchat.js')
