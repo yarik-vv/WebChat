@@ -11,7 +11,12 @@
 
   socket
     .on('message', function(username, message) {
-      printMessage(username+': '+ message);
+      printMessage(message, username);
+      $('<span>')
+        .text(username+', '+ new Date())
+        .appendTo(li)
+        .addClass('description');
+      //ul.scrollTop(scrollHeight);
       //ul.scrollTop = ul.scrollHeight;
     })
     .on('leave', function(username) {
@@ -50,15 +55,23 @@
         .text(text)
         .appendTo(ul)
         .addClass('my');
+      $('<span>')
+        .text('you, '+ new Date().getHours()+':'+new Date().getMinutes())
+        .appendTo(ul)
+        .addClass('my');
       ul.scrollTop(scrollHeight);
     });
     input.val('');
     return false;
   }
 
-  const printMessage = function(text) {
+  const printMessage = function(text, username) {
     $('<li>')
       .text(text)
+      .appendTo(ul)
+      .addClass('nmy');
+    $('<span>')
+      .text(username + ', ' + new Date().getHours()+':'+new Date().getMinutes())
       .appendTo(ul)
       .addClass('nmy');
     ul.scrollTop(scrollHeight);

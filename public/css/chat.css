@@ -1,3 +1,12 @@
+#window{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+/*  border: 0.1vh solid #393232;*/
+  border-radius: 6px;
+  box-shadow: 5px 5px 100px -20px #393232;
+}
+
 form[name="webchat"]{
   width: 100vh;
   height: 70vh;
@@ -6,12 +15,13 @@ form[name="webchat"]{
   flex-direction: column;
   justify-content: space-between;
   
-  background: gray;
   border-radius: 10px;
+  
+/*  border: 1px solid red;*/
 }
 
 ul{
-  height: 84.5%;
+  height: 94%;
 /*  border: 1px solid blue;*/
   padding: 2vh;
   list-style-type: none;
@@ -19,17 +29,21 @@ ul{
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  background: white;
+  background: #fbfbfb;
+  border-left: 0.1px solid #525252;
+  border-right: 0.1px solid #525252;
+/*  opacity: 0.70;*/
+/*  border: 2px solid green;*/
 }
 
 ul li{
-  border: 1px solid red;
+/*  border: 1px solid red;*/
   max-width: 60vh;
   
   text-align: left;
   
   align-self: center;
-  
+/*  opacity: 1 !important;*/
   word-wrap: break-word;
   padding: 0.5vh;
   border-radius: 10px;
@@ -39,13 +53,15 @@ ul li{
 .nmy{
   padding: 1vh;
   align-self: flex-start;
-  border: 1px solid green;
+/*  border: 1px solid green;*/
+  background: #5cff5c;
 }
 
 .my{
   padding: 1vh;
   align-self: flex-end;
-  border: 1px solid blue;
+/*  border: 1px solid blue;*/
+  background: #5c7dff;
 }
 header{
   height: 6%;
@@ -53,6 +69,9 @@ header{
 /*  border: 1px solid red;*/
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
+/*  opacity: 1;*/
+  border: 0.1vh solid #525252;
+  border-bottom: none;
 }
 footer{
   height: 9.5%;
@@ -61,6 +80,8 @@ footer{
   padding: 1vh;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
+  border: 0.1vh solid #525252;
+  border-top: none;
 }
 form[name="webchat"] input{
   width: 96%;
@@ -93,6 +114,10 @@ form[name="webchat"] footer button{
   width: 20px;
   height: 20px;
   background: url(close.svg) no-repeat;
+/*  border: 1px solid blue;*/
+  position: relative;
+  top: 0.5vh;
+  left: 0.5vh;
 }
 #logout:hover{
   background: url(close_hover.svg) no-repeat;
