@@ -16,8 +16,6 @@
         .text(username+', '+ new Date())
         .appendTo(li)
         .addClass('description');
-      //ul.scrollTop(scrollHeight);
-      //ul.scrollTop = ul.scrollHeight;
     })
     .on('leave', function(username) {
       printStatus(username + " покинул чат", "yellow");
@@ -49,6 +47,7 @@
     });
 
   const sendMessage = function() {
+    
     const text = input.val();
     socket.emit('message', text, function(data) {
       $('<li>')
@@ -71,6 +70,7 @@
       
       ul.scrollTop(scrollHeight);
     });
+    
     input.val('');
     return false;
   }

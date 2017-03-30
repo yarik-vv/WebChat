@@ -6,15 +6,13 @@ block content
       button#logout= exit
     form(name='webchat')
       ul#room
-        //li= 'Zdarova '+user.username+', yopta!'
       footer
         input(
-          disabled
-          autofocus
-          autocomplete="off",
           type="text",
           name="message",
-          placeholder="Enter your message..."
+          autocomplete="off",
+          placeholder="Enter your message...",
+          autofocus
         )
         button.icon-login(type='submit',data-loading-text="Отправляю...")
   script(src='/js/webchat.js')
