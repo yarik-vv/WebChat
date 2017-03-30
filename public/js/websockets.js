@@ -20,10 +20,10 @@
       //ul.scrollTop = ul.scrollHeight;
     })
     .on('leave', function(username) {
-      printStatus(username + " вышел из чата", "yellow");
+      printStatus(username + " покинул чат", "yellow");
     })
     .on('join', function(username) {
-      printStatus(username + " вошёл в чат", "yellow");
+      printStatus(username + " зашел в чат", "yellow");
     })
     .on('connect', function() {
       printStatus("Соединение установлено", "#d6f1e9");
@@ -41,7 +41,7 @@
     })
     .on('error', function(reason) {
       if(reason == "handshake unauthorized") {
-        printStatus("Вы вышли из сайта");
+        printStatus("Вы покинули чат");
       } 
     })
     .on('reconnect_failed', function() {
@@ -55,10 +55,20 @@
         .text(text)
         .appendTo(ul)
         .addClass('my');
+      
+      var hours = new Date().getHours();
+      if(new Date().getMinutes()<10){
+        var minutes='0'+new Date().getMinutes();
+      }
+      else{
+        var minutes=new Date().getMinutes();
+      }
+      
       $('<span>')
-        .text('you, '+ new Date().getHours()+':'+new Date().getMinutes())
+        .text('you, '+hours+':'+minutes)
         .appendTo(ul)
-        .addClass('my');
+        .addClass('mdescription');
+      
       ul.scrollTop(scrollHeight);
     });
     input.val('');
@@ -70,10 +80,20 @@
       .text(text)
       .appendTo(ul)
       .addClass('nmy');
+    
+    var hours = new Date().getHours();
+    if(new Date().getMinutes()<10){
+      var minutes='0'+new Date().getMinutes();
+    }
+    else{
+      var minutes=new Date().getMinutes();
+    }
+    
     $('<span>')
-      .text(username + ', ' + new Date().getHours()+':'+new Date().getMinutes())
+      .text(username+', '+hours+':'+minutes)
       .appendTo(ul)
-      .addClass('nmy');
+      .addClass('nmdescription');
+    
     ul.scrollTop(scrollHeight);
   }
 

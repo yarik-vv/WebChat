@@ -51,6 +51,7 @@ ul li{
 }
 
 .nmy{
+  margin: 0;
   padding: 1vh;
   align-self: flex-start;
 /*  border: 1px solid green;*/
@@ -58,6 +59,7 @@ ul li{
 }
 
 .my{
+  margin: 0;
   padding: 1vh;
   align-self: flex-end;
 /*  border: 1px solid blue;*/
@@ -92,6 +94,7 @@ form[name="webchat"] input{
   padding-bottom: 1.5vh;
   font-size: 3vh;
   border-radius: 8px;
+  
 }
 
 form[name="webchat"] footer button{
@@ -121,4 +124,20 @@ form[name="webchat"] footer button{
 }
 #logout:hover{
   background: url(close_hover.svg) no-repeat;
+}
+.mdescription{
+  font-size: 2vh;
+/*  padding-right: 1vh;*/
+  align-self: flex-end;
+  margin: 0.5vh;
+}
+.nmdescription{
+  font-size: 2vh;
+/*  padding-left: 1vh;*/
+  align-self: flex-start;
+  margin: 0.5vh;
+}
+.log{
+  padding-left: 1vh;
+  padding-right: 1vh;
 }
