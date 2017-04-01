@@ -1,4 +1,4 @@
-(function() {
+module.exports = {
   const form = $('form[name="webchat"]');
   const input = $('form[name="webchat"] input');
   const ul = $('form[name="webchat"] ul');
@@ -104,4 +104,4 @@
       .text(status)
       .appendTo(ul);
   }
-})();
+}

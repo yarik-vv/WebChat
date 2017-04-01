@@ -2,6 +2,7 @@
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
+var jQuery = require("jquery");
 
 module.exports = {
   context: __dirname + '/',
@@ -15,6 +16,9 @@ module.exports = {
     path: __dirname + '/build',
     publicPath: '/',
     filename: '[name].js'
+  },
+  externals: {
+    "jquery": "jQuery"
   },
 
   watch: NODE_ENV == 'development',
@@ -49,7 +53,7 @@ module.exports = {
   },
     
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
+    //new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     })
