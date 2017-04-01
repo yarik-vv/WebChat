@@ -10,7 +10,9 @@ gulp.task('clean', function() {
   return del([
     'views',
     'public/css', 
-    'public/js'
+    'public/js',
+    'public/fonts',
+    'public/*.{jpg,png,svg}'
   ]);
 });
 
@@ -26,6 +28,14 @@ gulp.task('fonts', function() {
   return gulp.src('frontend/**/*.{woff,woff2}')
     .pipe(rename({
       dirname: "fonts"
+    }))
+    .pipe(gulp.dest('./public'));
+});
+
+gulp.task('images', function() {
+  return gulp.src('frontend/**/*.{jpg,png,svg}')
+    .pipe(rename({
+      dirname: "/"
     }))
     .pipe(gulp.dest('./public'));
 });
@@ -46,7 +56,7 @@ gulp.task('js', function() {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('build', gulp.series('clean', 'templates', 'fonts', 'css', 'js'));
+gulp.task('build', gulp.series('clean', 'templates', 'fonts', 'images', 'css', 'js'));
 
 gulp.task('dev', 
   gulp.series(
@@ -54,6 +64,7 @@ gulp.task('dev',
     gulp.parallel(function(){
       gulp.watch('frontend/**/*.jade', gulp.series('templates'));
       gulp.watch('frontend/**/*.{woff,woff2}', gulp.series('fonts'));
+      gulp.watch('frontend/**/*.{jpg,png,svg}', gulp.series('images'));
       gulp.watch('frontend/**/*.css', gulp.series('css'));
       gulp.watch('frontend/**/*.js', gulp.series('js'));
     })

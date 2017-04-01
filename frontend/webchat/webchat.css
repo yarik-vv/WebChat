@@ -116,14 +116,14 @@ form[name="webchat"] footer button{
   border: none;
   width: 20px;
   height: 20px;
-  background: url(close.svg) no-repeat;
+  background: url(../close.svg) no-repeat;
 /*  border: 1px solid blue;*/
   position: relative;
   top: 0.5vh;
   left: 0.5vh;
 }
 #logout:hover{
-  background: url(close_hover.svg) no-repeat;
+  background: url(../close_hover.svg) no-repeat;
 }
 .mdescription{
   font-size: 2vh;
