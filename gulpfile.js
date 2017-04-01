@@ -22,6 +22,14 @@ gulp.task('templates', function() {
     .pipe(gulp.dest('./'));
 });
 
+gulp.task('fonts', function() {
+  return gulp.src('frontend/**/*.{woff,woff2}')
+    .pipe(rename({
+      dirname: "fonts"
+    }))
+    .pipe(gulp.dest('./public'));
+});
+
 gulp.task('css', function() {
   return gulp.src('frontend/**/*.css')
     .pipe(rename({
@@ -38,4 +46,16 @@ gulp.task('js', function() {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('build', gulp.series('clean', 'templates', 'css', 'js'));
+gulp.task('build', gulp.series('clean', 'templates', 'fonts', 'css', 'js'));
+
+gulp.task('dev', 
+  gulp.series(
+    'build',
+    gulp.parallel(function(){
+      gulp.watch('frontend/**/*.jade', gulp.series('templates'));
+      gulp.watch('frontend/**/*.{woff,woff2}', gulp.series('fonts'));
+      gulp.watch('frontend/**/*.css', gulp.series('css'));
+      gulp.watch('frontend/**/*.js', gulp.series('js'));
+    })
+  )
+);
