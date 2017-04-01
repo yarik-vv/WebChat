@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  form(action='/',name='login',method='post')
+    div.signin
+      h1= title
+      p= 'Please enter your name and password'
+    input(
+      type='text',
+      name='username',
+      placeholder='Nickname',
+      value='name'
+    )
+    input(
+      type='password',
+      name='password',
+      placeholder='Password',
+      value="pass"
+    )
+    button.icon-login(type='submit',data-loading-text="Отправляю...")
+    span.error
+  script(src='/js/login.js')

@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  div#window
+    header
+      button#logout= exit
+    form(name='webchat')
+      ul#room
+      footer
+        input(
+          type="text",
+          name="message",
+          autocomplete="off",
+          placeholder="Enter your message...",
+          pattern="^[а-яА-ЯёіІЁa-zA-Z0-9_^?https://*/.?]+$",
+          autofocus
+          required
+        )
+        button.icon-login(type='submit',data-loading-text="Отправляю...")
+  script(src='/js/webchat.js')
+  script(src='/vendor/socket.io-client/dist/socket.io.min.js')
+  script(src='/js/websockets.js')
