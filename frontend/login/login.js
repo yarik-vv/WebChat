@@ -1,14 +1,18 @@
-$(document.forms['login']).on('submit', function () {
-  var form = $(this);
+'use strict';
 
+import jQuery from 'jquery';
+
+function login() {
+  var form = $(document.forms['login']);
   $.ajax({
     url: "/",
     data: form.serialize(),
     method: "POST",
-    complete: function(){},
+    complete: function () {},
     statusCode: {
       200: function () {
-        window.location.href = "/webchat";
+        alert('suka');
+        location.href = "/webchat";
       },
       403: function (jqXHR) {
         var error = JSON.parse(jqXHR.responseText);
@@ -17,4 +21,6 @@ $(document.forms['login']).on('submit', function () {
     }
   });
   return false;
-});
+}
+
+module.exports = login;

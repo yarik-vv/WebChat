@@ -3,18 +3,19 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 var jQuery = require("jquery");
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   context: __dirname + '/',
 
   entry: {
     login :'./login',
-    webchat: './webchat'
+    webchat: './webchat/js'
   },
 
   output: {
     path: __dirname + '/build',
-    publicPath: '/',
+    publicPath: '/js/',
     filename: '[name].js'
   },
   externals: {
@@ -29,7 +30,7 @@ module.exports = {
 
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.js', '.css']
+    extensions: ['.js']
   },
 
   resolveLoader: {
@@ -42,7 +43,7 @@ module.exports = {
     rules: [{
       test: /\.js$/,
       exclude: /(node_modules)/,
-      include: __dirname + '/frontend',
+      include: __dirname + '/',
       use: [{
         loader: "babel-loader",
         options: {
@@ -53,7 +54,8 @@ module.exports = {
   },
     
   plugins: [
-    //new webpack.NoEmitOnErrorsPlugin(),
+    //new BundleAnalyzerPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
     })

@@ -49,7 +49,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-  return gulp.src('frontend/**/*.js')
+  return gulp.src('frontend/build/*.js')
     .pipe(rename({
       dirname: "js"
     }))
