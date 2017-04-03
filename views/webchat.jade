@@ -4,6 +4,8 @@ block content
   div#window
     header
       button#logout= exit
+      span#status
+        i.icon-spin3.icon-spin3-a
     form(name='webchat')
       ul#room
       footer
@@ -16,7 +18,7 @@ block content
           autofocus
           required
         )
-        button.icon-login(type='submit',data-loading-text="Отправляю...")
-  //script(src='/js/logout.js')
+        button.icon-chat-empty(type='submit',data-loading-text="Отправляю...")
+  script(src='/js/logout.js')
   script(src='/vendor/socket.io-client/dist/socket.io.min.js')
   script(src='/js/webchat.js')
