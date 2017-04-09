@@ -9,7 +9,7 @@ module.exports = function(req, res, next) {
       console.log('admin v zdanii');
     }
     else{
-      res.redirect('/');
+      //res.redirect('/');
       console.log('admin ne v zdanii');
       return next(new HttpError(401, "Вы не авторизованы"));
     };

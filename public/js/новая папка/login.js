@@ -5,7 +5,7 @@ $(document.forms['login']).on('submit', function () {
     url: "/",
     data: form.serialize(),
     method: "POST",
-    complete: function(){},
+    complete: function () {},
     statusCode: {
       200: function () {
         window.location.href = "/webchat";
