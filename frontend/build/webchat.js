@@ -18,13 +18,13 @@
         .addClass('description');
     })
     .on('leave', function (username) {
-      printStatus(username + " покинул чат", "yellow");
+      printStatus(username + " покинул чат", "#d6f1e9");
     })
     .on('join', function (username) {
-      printStatus(username + " зашел в чат", "yellow");
+      printStatus(username + " зашел в чат", "#d6f1e9");
     })
     .on('connect', function () {
-      printStatus("Соединение установлено", "#d6f1e9");
+      printStatus("Соединение установлено", "#26fa88");
       form.on('submit', sendMessage);
       input.prop('disabled', false);
     })
@@ -42,7 +42,7 @@
       }
     })
     .on('reconnect_failed', function () {
-      printStatus("Соединение потеряно");
+      printStatus("Соединение потеряно", "#f1d6ee");
     });
 
   const sendMessage = function () {
@@ -97,9 +97,9 @@
   const printStatus = function (status, color, icon, iconColor) {
     $('<li>')
       .css('background-color', color)
-      .addClass('log')
       .text(status)
-      .appendTo(ul);
-      //.append($('<i>').addClass(icon).css('color', iconColor));
+      .appendTo(ul)
+      .addClass('log');
+    ul.scrollTop(scrollHeight);
   }
 })();
