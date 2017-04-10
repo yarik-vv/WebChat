@@ -128,3 +128,16 @@ form[name="webchat"] footer button{
   padding-right: 1vh;
   font-family: Bubbler One, sans-serif;
 }
+
+@media (orientation: portrait) and (max-width: 619px) {
+
+  form[name="webchat"]{
+    width: 95vw;
+    height: 92vh;
+  }
+/*
+  body{
+    justify-content: flex-end;
+  }
+*/
+}
