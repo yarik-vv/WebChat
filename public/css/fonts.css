@@ -47,8 +47,7 @@
 }
 
 .icon-publish:before { content: '\e74d'; }
-.icon-login:before { content: '\e800'; } 
-.icon-emo-unhappy:before { content: '\e802'; } 
-.icon-spin3:before { content: '\e832'; } 
 .icon-chat-empty:before { content: '\f0e6'; }
-.icon-wechat:before { content: '\f1d7'; } 
+.icon-code:before { content: '\f121'; }
+.icon-git:before { content: '\f1d3'; }
+.icon-wechat:before { content: '\f1d7'; }
