@@ -53,7 +53,7 @@ schema.statics.authorize=(username, password) => {
           resolve(user);
         }
         else {
-          reject(new HttpError(403, "Пароль не верен"));  
+          reject(new HttpError(403, "Invalid password"));
         }
       } 
       else{

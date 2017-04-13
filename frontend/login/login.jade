@@ -12,15 +12,29 @@ block content
       placeholder='Nickname',
       value='name'
     )
-    input(
-      type='password',
-      name='password',
-      placeholder='Password',
-      value="pass"
-    )
-    button.icon-publish(type='submit',data-loading-text="Отправляю...")
+    div.kek
+      input(
+        type='password',
+        name='password',
+        placeholder='Password',
+        value='pass'
+      )
+      button.icon-publish(
+        type='submit',
+        data-loading-text="Sending..."
+      )
     span.error
-    div.footer
-      i.icon-git
-      i.icon-code
+    div.links
+      a.icon-git(
+        title='source code',
+        href='https://github.com/yarik-vv/webchat',
+        rel='noopener noreferrer',
+        target='_blank'
+      )
+      a.icon-code(
+        title='author page'
+        href='https://yarik-vv.info/',
+        rel='noopener noreferrer',
+        target='_blank'
+      )
   script(src='/js/login.js')

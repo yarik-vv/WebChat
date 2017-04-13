@@ -5,7 +5,7 @@ html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-form,input,div,h1,p,ul,li{
+form,input,div,h1,p,ul,li,button{
   margin: 0;
   padding: 0;
 }
@@ -27,6 +27,7 @@ body{
 
 form[name="login"]{
   width: 51vh;
+  height: 100vh;
   
   display: flex;
   flex-direction: column;
@@ -39,6 +40,7 @@ form[name="login"]{
 
 form[name="login"] input{
   width: 92%;
+  height: 4vh;
   outline: none;
   border: none;
   padding: 2vh;
@@ -53,27 +55,68 @@ form[name="login"] input[type="text"]{
 }
 
 form[name="login"] input[type="password"]{
-  margin-top: 1.5px;
-  border-bottom-right-radius: 6px;
+/*  margin-top: 2px;*/
+  border-radius: 0px;
   border-bottom-left-radius: 6px;
 }
 
+/*
 form[name="login"] button{
   height: 6vh;
-  width: 6vh;
+  width: 65px;
   background: none;
   border: none;
-  
+  outline: none;
+
   align-self: flex-end;
   position: relative;
-  top: -6vh;
-  left: -2vh;
-  
-  border-radius: 50px;
+  top: -6.3vh;
+  left: 0.5vh;
+
+  border: 1px solid black;
+
   font-size: 5vh;
   color: gray;
 }
+*/
 
+.kek{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 2px;
+  width: 100%;
+}
+
+form[name="login"] button{
+  height: 7vh;
+/*  width: 65px;*/
+  background: none;
+  border: none;
+  outline: none;
+  
+  margin: 0;
+/*
+  align-self: flex-end;
+  position: relative;
+  top: -6.3vh;
+  left: 0.5vh;
+*/
+
+/*  border: 1px solid black;*/
+
+  font-size: 5vh;
+  color: gray;
+  background: white;
+  border-bottom-right-radius: 6px;
+/*  border: 1px solid black;*/
+}
+
+form[name="login"] button:hover{
+  color: #26fa88;
+}
 .signin{ 
   width: 100%;
   margin-bottom: 1vh;
@@ -95,20 +138,39 @@ form[name="login"] button{
 .signin p{
   font-family: Bubbler One, sans-serif;
   color: white;
-  font-size: 3.5vh;
+  font-size: 3.4vh;
+
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
 }
-i{
+.signin i{
   font-size: 13vh;
   color: white;
 }
-.footer{
+.links{
+  position: relative;
+  top: 24vh;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.footer i{
-  font-size: 5vh;
+.links a{
+  color: white;
+  font-size: 4vh;
+  text-decoration: none;
+}
+
+.links a:hover{
+  color: black;
+}
+.error{
+  position: relative;
+  top: -3vh;
+  color: #fb5757;
+  font-family: Ubuntu, sans-serif;
+  font-size: 3vh;
 }
 
 
