@@ -73,6 +73,11 @@ footer{
   border-bottom-left-radius: 6px;
   border: 0.1vh solid #525252;
   border-top: none;
+
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 form[name="webchat"] input{
   width: 96%;
@@ -83,6 +88,8 @@ form[name="webchat"] input{
   padding-bottom: 1.5vh;
   font-size: 3vh;
   border-radius: 8px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
   
 }
 
@@ -100,6 +107,8 @@ form[name="webchat"] footer button{
   font-size: 5vh;
   color: gray;
 }
+
+
 
 #logout{
   border: none;
