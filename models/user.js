@@ -49,16 +49,13 @@ schema.statics.authorize=(username, password) => {
     User.findOne({username: username}).exec((err, user) => {
       if(err){
         reject(err);
-        //return;
       }
-
       if(user){
         if(user.checkPassword(password)){ 
           resolve(user);
         }
         else {
           reject(new HttpError(403, "Invalid password"));
-          //return;
         }
       } 
       else{
@@ -69,7 +66,6 @@ schema.statics.authorize=(username, password) => {
           }
           else{
             reject(err);
-            //return;
           }
         })
       }

@@ -43,19 +43,23 @@ ul li{
   font-size: 3vh;
 }
 
-.nmy{
+.message{
   margin: 0;
   padding: 1vh;
+/*
   align-self: flex-start;
   background: #fcfd45;
+*/
 }
 
+/*
 .my{
   margin: 0;
   padding: 1vh;
   align-self: flex-end;
   background: #5dd0e1;
 }
+*/
 header{
   height: 4vh;
   background: gray;
@@ -168,16 +172,18 @@ form[name="webchat"] footer button{
 #logout-hover:hover{
   opacity: 1;
 }
-.mdescription{
+.description{
   font-size: 2vh;
-  align-self: flex-end;
+/*  align-self: flex-end;*/
   margin: 0.5vh;
 }
+/*
 .nmdescription{
   font-size: 2vh;
   align-self: flex-start;
   margin: 0.5vh;
 }
+*/
 .log{
   padding-left: 1vh;
   padding-right: 1vh;

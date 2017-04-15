@@ -2,6 +2,11 @@
   const form = $('form[name="webchat"]');
   const input = $('form[name="webchat"] input');
   const ul = $('form[name="webchat"] ul');
+
+  const formE = document.querySelectorAll('form[name="webchat"]');
+  const inputE = document.querySelectorAll('form[name="webchat"] input');
+  const chat = document.getElementById('room');
+
   const scrollHeight = 999999;
 
   const socket = io('', {
@@ -12,10 +17,6 @@
   socket
     .on('message', function (username, message) {
       printMessage(message, username);
-      $('<span>')
-        .text(username + ', ' + new Date())
-        .appendTo(li)
-        .addClass('description');
     })
     .on('leave', function (username) {
       printStatus(username + " покинул чат", "#d6f1e9");
@@ -46,67 +47,58 @@
     });
 
   const sendMessage = function () {
-
     const text = input.val();
     socket.emit('message', text, function (data) {
-      $('<li>')
-        .text(text)
-        .appendTo(ul)
-        .addClass('my');
-
-      var hours = new Date().getHours();
-      if (new Date().getMinutes() < 10) {
-        var minutes = '0' + new Date().getMinutes();
-      } else {
-        var minutes = new Date().getMinutes();
-      }
-
-      $('<span>')
-        .text('you, ' + hours + ':' + minutes)
-        .appendTo(ul)
-        .addClass('mdescription');
-
-      ul.scrollTop(scrollHeight);
+      printMessage(data, 'you')
     });
-
     input.val('');
     return false;
   }
 
+  const currentTime = function(){
+    let date = new Date();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      if(minutes<10){
+        minutes = '0' + date.getMinutes();
+      }
+    return hours + ':' + minutes;
+  }
+
   const printMessage = function (text, username) {
-    $('<li>')
-      .text(text)
-      .appendTo(ul)
-      .addClass('nmy');
+    let message = document.createElement('li');
+      message.className = 'message';
+      if(username=='you'){
+        message.style.alignSelf = 'flex-end';
+        message.style.backgroundColor = '#5dd0e1';
+      }
+      else{
+        message.style.alignSelf = 'flex-start';
+        message.style.backgroundColor = '#fcfd45';
+      }
+      message.innerHTML = text;
+    chat.appendChild(message);
 
-    var hours = new Date().getHours();
-    if (new Date().getMinutes() < 10) {
-      var minutes = '0' + new Date().getMinutes();
-    } else {
-      var minutes = new Date().getMinutes();
-    }
+    let description = document.createElement('span');
+      description.className = 'description';
+      if(username=='you'){
+        description.style.alignSelf = 'flex-end';
+      }
+      else{
+        description.style.alignSelf = 'flex-start';
+      }
+      description.innerHTML = username + ', ' + currentTime();
+    chat.appendChild(description);
 
-    $('<span>')
-      .text(username + ', ' + hours + ':' + minutes)
-      .appendTo(ul)
-      .addClass('nmdescription');
-
-    ul.scrollTop(scrollHeight);
+    chat.scrollTop = scrollHeight;
   }
 
-  const printStatus = function (status, color, icon, iconColor) {
-    $('<li>')
-      .css('background-color', color)
-      .text(status)
-      .appendTo(ul)
-      .addClass('log');
-    ul.scrollTop(scrollHeight);
+  const printStatus = (status, color) => {
+    let statusMessage = document.createElement('li');
+      statusMessage.className = 'log';
+      statusMessage.style.backgroundColor = color;
+      statusMessage.innerHTML = status;
+    chat.appendChild(statusMessage);
+    chat.scrollTop = scrollHeight;
   }
-
-
-//  $(window).resize(function() {
-//    alert( $(window).height() );
-//    let vh = document.documentElement.clientHeight;
-//    form.css('height', vh);
-//  })
 })();
