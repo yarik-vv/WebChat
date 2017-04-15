@@ -66,11 +66,11 @@ app.use('/', login);
 app.use('/webchat', webchat);
 app.use('/logout', logout);
 //spisok uzerov
-//if(app.get('env')=='development'){
-//  app.use('/users', users);
-//}
+if(app.get('env')=='development'){
+  app.use('/users', users);
+}
 //if invalid url
-//app.use('/*', error);
+app.use('/*', error);
 
 
 // error handler

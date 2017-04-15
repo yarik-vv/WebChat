@@ -4,7 +4,7 @@ var router = express.Router();
 //get to error page
 router.get('/', function(req, res, next) {
   req.session.destroy();
-  //res.redirect('/');
+  res.redirect('/');
 });
 
 module.exports = router;
