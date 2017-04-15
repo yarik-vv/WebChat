@@ -21,6 +21,7 @@ form[name="webchat"]{
 ul{
   height: 59vh;
   padding: 2vh;
+/*  padding-top: 0;*/
   list-style-type: none;
   overflow-y: scroll;
   display: flex;
@@ -32,13 +33,14 @@ ul{
 }
 
 ul li{
-  max-width: 60vh;
+  max-width: 70vh;
   text-align: left;
   align-self: center;
   word-wrap: break-word;
   padding: 0.5vh;
   border-radius: 10px;
   margin: 0.5vh;
+  font-size: 3vh;
 }
 
 .nmy{
@@ -143,18 +145,28 @@ form[name="webchat"] footer button{
 
 #logout{
   border: none;
-  width: 20px;
-  height: 20px;
-  background: url(../close.svg) no-repeat;
+  width: 2.5vh;
+  height: 2.5vh;
+  background: url(../close.png) no-repeat;
+  background-size: cover;
   margin-left: 1vh;
+/*  border: 1px solid black;*/
 /*
   position: relative;
   top: 0.5vh;
   left: 0.5vh;
 */
 }
-#logout:hover{
-  background: url(../close_hover.svg) no-repeat;
+#logout-hover{
+  background: url(../close-hover.png) no-repeat;
+  background-size: cover;
+/*  border: 1px solid black;*/
+  height: inherit;
+  width: inherit;
+  opacity: 0;
+}
+#logout-hover:hover{
+  opacity: 1;
 }
 .mdescription{
   font-size: 2vh;
@@ -170,6 +182,9 @@ form[name="webchat"] footer button{
   padding-left: 1vh;
   padding-right: 1vh;
   font-family: Bubbler One, sans-serif;
+  font-size: 2.6vh;
+  margin: 2vh;
+  margin-top: 0.5vh;
 }
 
 @media (max-width: 619px), (orientation: portrait){
@@ -180,5 +195,13 @@ form[name="webchat"] footer button{
   }
   ul{
     height: 88vh;
+    border: 0;
+  }
+  header,footer{
+    border-radius: 0;
+    border: 0;
+  }
+  ul li{
+    max-width: 75vw;
   }
 }
