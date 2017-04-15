@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const HttpError = require('error').HttpError;
 const mongoose = require('libs/mongoose');
 const Schema = mongoose.Schema;
+const log = require('libs/log')(module);
 
 var schema = new Schema({
   username: {
@@ -24,6 +25,8 @@ var schema = new Schema({
 });
 
 schema.methods.encryptPassword = function(password) {
+  var kek= typeof password;
+  log.info(kek);
   return crypto.createHmac('sha1', this.salt).update(password).digest('hex');
 };
 
@@ -46,6 +49,7 @@ schema.statics.authorize=(username, password) => {
     User.findOne({username: username}).exec((err, user) => {
       if(err){
         reject(err);
+        //return;
       }
 
       if(user){
@@ -54,6 +58,7 @@ schema.statics.authorize=(username, password) => {
         }
         else {
           reject(new HttpError(403, "Invalid password"));
+          //return;
         }
       } 
       else{
@@ -64,6 +69,7 @@ schema.statics.authorize=(username, password) => {
           }
           else{
             reject(err);
+            //return;
           }
         })
       }

@@ -175,12 +175,14 @@ form[name="login"] button:hover{
 .links a:hover{
   color: black;
 }
-.error{
+#error{
   position: relative;
-  top: -3vh;
+  margin-top: 2vh;
   color: #fb5757;
   font-family: Ubuntu, sans-serif;
   font-size: 3vh;
+  height: 3vh;
+/*  border: 1px solid black;*/
 }
 
 

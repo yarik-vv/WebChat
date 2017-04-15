@@ -1,20 +1,36 @@
-$(document.forms['login']).on('submit', function () {
-  var form = $(this);
+document.getElementById('login').onclick = () => {
+  AJAXrequest();
+  return false;
+};
 
-  $.ajax({
-    url: "/",
-    data: form.serialize(),
-    method: "POST",
-    complete: function () {},
-    statusCode: {
-      200: function () {
-        window.location.href = "/webchat";
-      },
-      403: function (jqXHR) {
-        var error = JSON.parse(jqXHR.responseText);
-        $('.error', form).html(error.message);
+function AJAXrequest() {
+  let form = document.forms['login'];
+  let data = serialize(form);
+  let request = new XMLHttpRequest();
+  request.onreadystatechange = () => {
+    if(request.readyState === XMLHttpRequest.DONE) {
+      //console.log(request.readyState, request.status, request.responseText);
+      //console.log(request.responseText);
+      if(request.status===200){
+        window.location.href = '/webchat';
+      }
+      else{
+        let error = JSON.parse(request.responseText);
+        document.getElementById('error').innerHTML = error.message;
       }
     }
-  });
-  return false;
-});
+  };
+  request.open('POST', '/');
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+  request.send(data);
+  //console.log('send request');
+};
+
+function serialize(selectForm) {
+  let string = [];
+  for(let i=0; i<2; i++) {
+    string.push(selectForm.elements[i].name + "=" + encodeURIComponent(selectForm.elements[i].value));
+  }
+  return string.join("&");
+};

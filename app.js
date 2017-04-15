@@ -6,6 +6,8 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
+var errorHandler = require('errorhandler');
+
 //custom
 const config = require('config');
 const HttpError = require('error').HttpError;
@@ -83,7 +85,8 @@ app.use(function(err, req, res, next) {
   } 
   else {
     if(app.get('env')=='development'){
-      express.errorHandler()(err, req, res, next);} 
+      app.use(errorHandler(err, req, res, next));
+    }
     else{
       log.error(err);
       err = new HttpError(500);
