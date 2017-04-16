@@ -1,10 +1,10 @@
 (function () {
-  const form = $('form[name="webchat"]');
-  const input = $('form[name="webchat"] input');
-  const ul = $('form[name="webchat"] ul');
-
-  const formE = document.querySelectorAll('form[name="webchat"]');
-  const inputE = document.querySelectorAll('form[name="webchat"] input');
+  const form = document.querySelector('form[name="webchat"]');
+  form.onsubmit = (action) => {
+    action.preventDefault();
+  };
+  const input = document.querySelector('form[name="webchat"] input');
+  const sendButton = document.querySelector('button[type="submit"]');
   const chat = document.getElementById('room');
 
   const scrollHeight = 999999;
@@ -26,13 +26,15 @@
     })
     .on('connect', function () {
       printStatus("Соединение установлено", "#26fa88");
-      form.on('submit', sendMessage);
-      input.prop('disabled', false);
+      form.addEventListener('submit', sendMessage);
+      input.disabled = false;
+      sendButton.disabled = false;
     })
     .on('disconnect', function () {
       printStatus("Переподключение...", "#f1d6ee");
-      form.off('submit', sendMessage);
-      input.prop('disabled', true);
+      form.removeEventListener('submit', sendMessage);
+      input.disabled = true;
+      sendButton.disabled = true;
     })
     .on('logout', function () {
       location.href = "/";
@@ -47,11 +49,11 @@
     });
 
   const sendMessage = function () {
-    const text = input.val();
+    const text = input.value;
     socket.emit('message', text, function (data) {
       printMessage(data, 'you')
     });
-    input.val('');
+    input.value = '';
     return false;
   }
 

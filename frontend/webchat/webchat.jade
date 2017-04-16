@@ -5,7 +5,7 @@ block content
     header
       button#logout
         div#logout-hover
-    form(name='webchat')
+    form(name='webchat', action="")
       ul#room
       footer
         input(
@@ -13,7 +13,6 @@ block content
           name="message",
           autocomplete="off",
           placeholder="Enter your message...",
-          pattern="^[а-яА-ЯёіІЁa-zA-Z0-9_^?https://*/.?]+$",
           autofocus
           required
         )
