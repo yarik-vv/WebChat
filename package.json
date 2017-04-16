@@ -1,6 +1,6 @@
 {
   "name": "webchat",
-  "version": "0.1.2",
+  "version": "0.1.5",
   "private": true,
   "scripts": {
     "start": "node app.js",
@@ -21,7 +21,6 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-rename": "^1.2.2",
     "jade": "~1.11.0",
-    "jquery": "^3.2.1",
     "mongodb": "^2.2.25",
     "mongoose": "^4.9.1",
     "morgan": "~1.7.0",
