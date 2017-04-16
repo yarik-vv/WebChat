@@ -2,7 +2,6 @@
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
-var jQuery = require("jquery");
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
@@ -17,9 +16,6 @@ module.exports = {
     path: __dirname + '/build',
     publicPath: '/js/',
     filename: '[name].js'
-  },
-  externals: {
-    "jquery": "jQuery"
   },
 
   watch: NODE_ENV == 'development',
