@@ -1,13 +1,13 @@
 'use scrict';
+(function () {
 
-document.getElementById('logout').onclick = () => {
+  document.getElementById('logout').onclick = () => {
   require.ensure([], (require) => {
     let logout = require('./logout');
     logout();
   });
-};
+  };
 
-(function () {
   const form = document.querySelector('form[name="webchat"]');
   form.onsubmit = (action) => {
     action.preventDefault();

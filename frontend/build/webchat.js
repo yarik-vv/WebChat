@@ -27,7 +27,7 @@
 
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		1: 0
+/******/ 		2: 0
 /******/ 	};
 
 /******/ 	// The require function
@@ -137,26 +137,27 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 2:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 'use scrict';
 
-document.getElementById('logout').onclick = function () {
-  __webpack_require__.e/* require.ensure */(0).then((function (require) {
-    var logout = __webpack_require__(0);
-    logout();
-  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-};
-
 (function () {
+
+  document.getElementById('logout').onclick = function () {
+    __webpack_require__.e/* require.ensure */(0).then((function (require) {
+      var logout = __webpack_require__(1);
+      logout();
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  };
+
   var form = document.querySelector('form[name="webchat"]');
   form.onsubmit = function (action) {
     action.preventDefault();
