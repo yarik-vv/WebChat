@@ -3,7 +3,7 @@ extends layout
 block content
   form(action='/',name='login',method='post')
     div.signin
-      i.icon-wechat
+      i.icon-webchat
       h1= title
       p= 'Please enter your name and password'
     input(
@@ -19,18 +19,18 @@ block content
         placeholder='Password',
         value='pass'
       )
-      button#login.icon-publish(
+      button#login.icon-login(
         data-loading-text="Sending..."
       )
     span#error
     div.links
-      a.icon-git(
+      a.icon-github(
         title='source code',
         href='https://github.com/yarik-vv/webchat',
         rel='noopener noreferrer',
         target='_blank'
       )
-      a.icon-code(
+      a.icon-author(
         title='author page'
         href='https://yarik-vv.info/',
         rel='noopener noreferrer',

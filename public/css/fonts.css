@@ -16,38 +16,3 @@
    font-style: normal;
    font-weight: 400;
 }
-@font-face {
-  font-family: 'icons';
-  src: url('../fonts/icons.woff2') format('woff2'), url('fonts/icons.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: "icons";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
- 
-  display: inline-block;
-  text-decoration: inherit;
-  width: 1em;
-  margin-right: .2em;
-  text-align: center;
-
-  font-variant: normal;
-  text-transform: none;
- 
-  line-height: 1em;
- 
-  margin-left: .2em;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-publish:before { content: '\e74d'; }
-.icon-chat-empty:before { content: '\f0e6'; }
-.icon-code:before { content: '\f121'; }
-.icon-git:before { content: '\f1d3'; }
-.icon-wechat:before { content: '\f1d7'; }

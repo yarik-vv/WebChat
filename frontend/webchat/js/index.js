@@ -1,5 +1,5 @@
 'use scrict';
-(function () {
+//(function () {
 
   document.getElementById('logout').onclick = () => {
   require.ensure([], (require) => {
@@ -112,4 +112,4 @@
     chat.appendChild(statusMessage);
     chat.scrollTop = scrollHeight;
   }
-})();
+//})();
