@@ -10,7 +10,7 @@
     }
   },
   "session": {
-    "secret": "KillerIsJim",
+    "secret": "5077c55561abc353a56fe8fdd7ca3458b303786d",
     "key": "sid",
     "cookie": {
       "path": "/",
