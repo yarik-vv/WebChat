@@ -1,24 +1,26 @@
 extends layout
 
 block content
-  div#window
-    header
-      button#logout
-        div#logout-hover
-    form(name='webchat', action="")
-      ul#room
-      footer
-        input(
-          type="text",
-          name="message",
-          autocomplete="off",
-          placeholder="Enter your message...",
-          autofocus
-          required
-        )
-        button.icon-send(
-          type='submit',
-          data-loading-text="Отправляю..."
-        )
-  script(src='/vendor/socket.io-client/dist/socket.io.min.js')
-  script(src='/js/webchat.js')
+  link(rel='stylesheet', href='/css/webchat.css')
+  body
+    div#window
+      header
+        button#logout
+          div#logout-hover
+      form(name='webchat', action="")
+        ul#room
+        footer
+          input(
+            type="text",
+            name="message",
+            autocomplete="off",
+            placeholder="Enter your message...",
+            autofocus
+            required
+          )
+          button.icon-send(
+            type='submit',
+            data-loading-text="Отправляю..."
+          )
+    script(src='/vendor/socket.io-client/dist/socket.io.min.js')
+    script(src='/js/webchat.js')
