@@ -15,7 +15,8 @@ router.get('/', function(req, res, next) {
     if(err){ 
       return next(err);
     }
-    res.json(users);
+    //res.json(users);
+    res.render('users', { users: users});
   });
 });
 
