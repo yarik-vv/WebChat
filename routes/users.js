@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
     if(err){ 
       return next(err);
     }
-    res.render('users', { users: users});
+    res.render('users', {users: users});
   });
 });
 
@@ -27,7 +27,7 @@ router.get('/:id', function(req, res, next) {
       if(err || !user){ 
         return next(err);
       }
-      res.json(user);
+      res.render('user', {user: user});
     });
   }catch(e) {
     next(new HttpError(404, 'Netu takogo usera'));
