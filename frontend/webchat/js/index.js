@@ -82,10 +82,12 @@
       if(username=='you'){
         message.style.alignSelf = 'flex-end';
         message.style.backgroundColor = '#5dd0e1';
+        message.style.borderBottomRightRadius = '0';
       }
       else{
         message.style.alignSelf = 'flex-start';
         message.style.backgroundColor = '#fcfd45';
+        message.style.borderBottomLeftRadius = '0px';
       }
       message.innerHTML = text;
     chat.appendChild(message);
