@@ -1,4 +1,5 @@
 /node_modules
 /bower_components
+/frontend/build
 /public/vendor
 npm-debug.log
