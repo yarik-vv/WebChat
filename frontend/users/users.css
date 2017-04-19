@@ -1,0 +1,68 @@
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+}
+.list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5vh;
+/*  border: 1px solid black;*/
+}
+.menu {
+/*  border: 1px solid black;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.menu a, .list a{
+  font-family: Bubbler One, sans-serif;
+  color: black;
+  font-size: 5vh;
+  text-decoration: none;
+}
+.list a{
+  margin: 3vh;
+  color: white;
+}
+.menu a{
+  margin: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  padding: 1vh;
+  border: 1px solid black;
+  border-radius: 15px;
+
+  padding-left: 2vh;
+  padding-right: 2vh;
+}
+
+.menu a:hover{
+  cursor: pointer;
+  border-color: white;
+  color: white;
+}
+.list a:hover{
+  font-size: 6vh;
+  color: white;
+}
+.list span{
+  padding: 1vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  border: 1px solid white;
+  border-radius: 15px;
+
+}
+#username{
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+#id{
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-left: none;
+}
