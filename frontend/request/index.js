@@ -1,7 +1,6 @@
 'use strict';
 
-//var AJAXrequest = new Promise(function(resolve, reject) {
-function AJAXrequest() {
+var AJAXrequest = new Promise(function(resolve, reject) {
   let form = document.forms['login'];
   let data = serialize(form);
   let request = new XMLHttpRequest();
@@ -10,13 +9,11 @@ function AJAXrequest() {
       console.log(request.readyState, request.status, request.responseText);
       console.log(request.responseText);
       if(request.status===200){
-        //resolve();
-        window.location.href = '/webchat';
+        resolve();
       }
       else{
         let error = JSON.parse(request.responseText);
-        //reject(error);
-        document.getElementById('error').innerHTML = error.message;
+        reject(error);
       }
     }
   };
@@ -25,8 +22,8 @@ function AJAXrequest() {
   request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
   request.send(data);
   //console.log('send request');
-//});
-};
+});
+
 function serialize(selectForm) {
   let string = [];
   for(let i=0; i<2; i++) {

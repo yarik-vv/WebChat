@@ -156,15 +156,11 @@ form.onsubmit = function (action) {
 document.getElementById('login').onclick = function () {
   __webpack_require__.e/* require.ensure */(1).then((function (require) {
     var AJAXrequest = __webpack_require__(0);
-    AJAXrequest();
-    //      .then(
-    //        result => {
-    //          window.location.href = '/webchat';
-    //        },
-    //        error => {
-    //          document.getElementById('error').innerHTML = error.message;
-    //        }
-    //      );
+    AJAXrequest.then(function (result) {
+      window.location.href = '/webchat';
+    }, function (error) {
+      document.getElementById('error').innerHTML = error.message;
+    });
     return false;
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
