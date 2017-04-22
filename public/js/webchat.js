@@ -137,12 +137,12 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 4:
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -151,7 +151,7 @@
 //(function () {
 
 document.getElementById('logout').onclick = function () {
-  __webpack_require__.e/* require.ensure */(0).then((function (require) {
+  __webpack_require__.e/* require.ensure */(1).then((function (require) {
     var logout = __webpack_require__(1);
     logout();
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);

@@ -137,28 +137,36 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 3:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-function remove(id) {
-  __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {
-    var AJAXrequest = __webpack_require__(0);
-    AJAXrequest.then(function (result) {
-      alert('UDALENO');
-    }, function (error) {
-      document.getElementById('error').innerHTML = error.message;
-    });
-    return false;
-  }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-}
+var list = document.getElementById('list');
+list.addEventListener('click', remove);
+
+function remove(event) {
+  var id = event.target.name;
+  console.log('[users.js] id: ' + id);
+  console.log(event.target.className);
+  if (event.target.className === 'remove') {
+    __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {
+      var AJAXrequest = __webpack_require__(0);
+      AJAXrequest(id).then(function (result) {
+        document.getElementById(id).remove();
+      }, function (error) {
+        alert('beda');
+      });
+      return false;
+    }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+  }
+};
 
 /***/ })
 

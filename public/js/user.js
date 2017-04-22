@@ -27,7 +27,7 @@
 
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		3: 0
+/******/ 		4: 0
 /******/ 	};
 
 /******/ 	// The require function
@@ -148,18 +148,18 @@
 "use strict";
 
 
-var list = document.getElementById('list');
+var list = document.querySelector('nav.menu');
 list.addEventListener('click', remove);
 
 function remove(event) {
   var id = event.target.name;
-  console.log('[users.js] id: ' + id);
+  console.log('[user.js] id: ' + id);
   console.log(event.target.className);
   if (event.target.className === 'remove') {
-    __webpack_require__.e/* require.ensure */(1/* duplicate */).then((function (require) {
+    __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {
       var AJAXrequest = __webpack_require__(0);
       AJAXrequest(id).then(function (result) {
-        document.getElementById(id).remove();
+        window.location.href = '/users';
       }, function (error) {
         alert('beda');
       });

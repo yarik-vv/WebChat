@@ -1,33 +1,43 @@
+html, body {
+  overflow: auto;
+}
+div,span,a,button{
+  padding: 0;
+  margin: 0;
+}
 body{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
 }
 .list{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 5vh;
+  margin: 1vh;
 /*  border: 1px solid black;*/
 }
 .menu {
-/*  border: 1px solid black;*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.menu a, .list a, #user{
+.menu a, .list a, #user, button{
   font-family: Bubbler One, sans-serif;
   color: black;
   font-size: 5vh;
   text-decoration: none;
 }
-.list a{
-  margin: 3vh;
+.list div{
+  margin: 1vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+/*  border: 1px solid blue;*/
+}
+.list div a{
+  margin-right: 10vw;
   color: white;
 }
+
 .menu a{
   margin: 5vh;
   margin-top: 2vh;
@@ -45,17 +55,21 @@ body{
   border-color: white;
   color: white;
 }
-.list a:hover{
-  font-size: 6vh;
-  color: white;
+.list a:hover,
+.list button:hover{
+  color: black;
 }
-.list span{
+button{
+  background: none;
+  color: white;
+
+}
+.list span, button{
   padding: 1vh;
   padding-left: 2vh;
   padding-right: 2vh;
   border: 1px solid white;
   border-radius: 15px;
-
 }
 #username{
   border-bottom-right-radius: 0;
@@ -66,22 +80,6 @@ body{
   border-top-left-radius: 0;
   border-left: none;
 }
-#user {
-  align-self: center;
-  color: white;
-
-  border: 1px solid white;
-  border-radius: 15px;
-
-  padding: 2vh;
-  padding-left: 2vh;
-  padding-right: 2vh;
-  margin-top: 20vh;
-  margin-bottom: 15vh;
-}
-#user p{
-  margin: 2vh;
-}
 #title{
   font-family: Ubuntu, sans-serif;
   text-align: center;
@@ -89,3 +87,4 @@ body{
   color: white;
   margin-top: 5vh;
 }
+

@@ -10,7 +10,8 @@ module.exports = {
   entry: {
     login :'./login',
     webchat: './webchat/js',
-    user: './users'
+    users: './users',
+    user: './user'
   },
 
   output: {
