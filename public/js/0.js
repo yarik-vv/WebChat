@@ -11,6 +11,9 @@ function AJAXrequest(id) {
       var form = document.forms['login'];
       var data = serialize(form);
       var path = '/';
+    } else if (id === 'logout') {
+      var data = '';
+      var path = '/logout';
     } else {
       var data = "id=" + encodeURIComponent(id);
       var path = '/users';

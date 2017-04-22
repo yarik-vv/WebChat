@@ -27,7 +27,7 @@
 
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		2: 0
+/******/ 		1: 0
 /******/ 	};
 
 /******/ 	// The require function
@@ -137,23 +137,32 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 5:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 'use scrict';
-//(function () {
 
 document.getElementById('logout').onclick = function () {
-  __webpack_require__.e/* require.ensure */(1).then((function (require) {
-    var logout = __webpack_require__(1);
-    logout();
+  __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {
+    var AJAXrequest = __webpack_require__(0);
+    AJAXrequest('logout');
+    location.href = "/";
+    //      .then(
+    //        result => {
+    //          window.location.href = '/';
+    //        },
+    //        error => {
+    //          alert('beda');
+    //        }
+    //      );
+    //      return false;
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 
@@ -253,7 +262,6 @@ var printStatus = function printStatus(status, color) {
   chat.appendChild(statusMessage);
   chat.scrollTop = scrollHeight;
 };
-//})();
 
 /***/ })
 

@@ -1,12 +1,21 @@
 'use scrict';
-//(function () {
 
-  document.getElementById('logout').onclick = () => {
+document.getElementById('logout').onclick = () => {
   require.ensure([], (require) => {
-    let logout = require('./logout');
-    logout();
+    var AJAXrequest = require('../../request');
+    AJAXrequest('logout');
+    location.href = "/";
+//      .then(
+//        result => {
+//          window.location.href = '/';
+//        },
+//        error => {
+//          alert('beda');
+//        }
+//      );
+//      return false;
   });
-  };
+};
 
   const form = document.querySelector('form[name="webchat"]');
   form.onsubmit = (action) => {
@@ -114,4 +123,3 @@
     chat.appendChild(statusMessage);
     chat.scrollTop = scrollHeight;
   }
-//})();
