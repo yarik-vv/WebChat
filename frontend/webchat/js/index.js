@@ -25,6 +25,8 @@ document.getElementById('logout').onclick = () => {
   const sendButton = document.querySelector('button[type="submit"]');
   const chat = document.getElementById('room');
 
+  import status from './printStatus';
+
   const scrollHeight = 999999;
 
   const socket = io('', {
@@ -37,19 +39,19 @@ document.getElementById('logout').onclick = () => {
       printMessage(message, username);
     })
     .on('leave', function (username) {
-      printStatus(username + " покинул чат", "#d6f1e9");
+      status(username + " покинул чат", "#d6f1e9");
     })
     .on('join', function (username) {
-      printStatus(username + " зашел в чат", "#d6f1e9");
+      status(username + " зашел в чат", "#d6f1e9");
     })
     .on('connect', function () {
-      printStatus("Соединение установлено", "#26fa88");
+      status("Соединение установлено", "#26fa88");
       form.addEventListener('submit', sendMessage);
       input.disabled = false;
       sendButton.disabled = false;
     })
     .on('disconnect', function () {
-      printStatus("Переподключение...", "#f1d6ee");
+      status("Переподключение...", "#f1d6ee");
       form.removeEventListener('submit', sendMessage);
       input.disabled = true;
       sendButton.disabled = true;
@@ -59,11 +61,11 @@ document.getElementById('logout').onclick = () => {
     })
     .on('error', function (reason) {
       if (reason == "handshake unauthorized") {
-        printStatus("Вы покинули чат");
+        status("Вы покинули чат");
       }
     })
     .on('reconnect_failed', function () {
-      printStatus("Соединение потеряно", "#f1d6ee");
+      status("Соединение потеряно", "#f1d6ee");
     });
 
   const sendMessage = function () {
@@ -112,14 +114,5 @@ document.getElementById('logout').onclick = () => {
       description.innerHTML = username + ', ' + currentTime();
     chat.appendChild(description);
 
-    chat.scrollTop = scrollHeight;
-  }
-
-  const printStatus = (status, color) => {
-    let statusMessage = document.createElement('li');
-      statusMessage.className = 'log';
-      statusMessage.style.backgroundColor = color;
-      statusMessage.innerHTML = status;
-    chat.appendChild(statusMessage);
     chat.scrollTop = scrollHeight;
   }

@@ -137,17 +137,45 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 4:
+/***/ 1:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var chat = document.getElementById('room');
+var scrollHeight = 999999;
+
+var printStatus = function printStatus(status, color) {
+  var statusMessage = document.createElement('li');
+  statusMessage.className = 'log';
+  statusMessage.style.backgroundColor = color;
+  statusMessage.innerHTML = status;
+  chat.appendChild(statusMessage);
+  chat.scrollTop = scrollHeight;
+};
+
+module.exports = printStatus;
+
+/***/ }),
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 'use scrict';
+
+var _printStatus = __webpack_require__(1);
+
+var _printStatus2 = _interopRequireDefault(_printStatus);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 document.getElementById('logout').onclick = function () {
   __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {
@@ -184,16 +212,16 @@ var socket = io('', {
 socket.on('message', function (username, message) {
   printMessage(message, username);
 }).on('leave', function (username) {
-  printStatus(username + " покинул чат", "#d6f1e9");
+  (0, _printStatus2.default)(username + " покинул чат", "#d6f1e9");
 }).on('join', function (username) {
-  printStatus(username + " зашел в чат", "#d6f1e9");
+  (0, _printStatus2.default)(username + " зашел в чат", "#d6f1e9");
 }).on('connect', function () {
-  printStatus("Соединение установлено", "#26fa88");
+  (0, _printStatus2.default)("Соединение установлено", "#26fa88");
   form.addEventListener('submit', sendMessage);
   input.disabled = false;
   sendButton.disabled = false;
 }).on('disconnect', function () {
-  printStatus("Переподключение...", "#f1d6ee");
+  (0, _printStatus2.default)("Переподключение...", "#f1d6ee");
   form.removeEventListener('submit', sendMessage);
   input.disabled = true;
   sendButton.disabled = true;
@@ -201,10 +229,10 @@ socket.on('message', function (username, message) {
   location.href = "/";
 }).on('error', function (reason) {
   if (reason == "handshake unauthorized") {
-    printStatus("Вы покинули чат");
+    (0, _printStatus2.default)("Вы покинули чат");
   }
 }).on('reconnect_failed', function () {
-  printStatus("Соединение потеряно", "#f1d6ee");
+  (0, _printStatus2.default)("Соединение потеряно", "#f1d6ee");
 });
 
 var sendMessage = function sendMessage() {
@@ -251,15 +279,6 @@ var printMessage = function printMessage(text, username) {
   description.innerHTML = username + ', ' + currentTime();
   chat.appendChild(description);
 
-  chat.scrollTop = scrollHeight;
-};
-
-var printStatus = function printStatus(status, color) {
-  var statusMessage = document.createElement('li');
-  statusMessage.className = 'log';
-  statusMessage.style.backgroundColor = color;
-  statusMessage.innerHTML = status;
-  chat.appendChild(statusMessage);
   chat.scrollTop = scrollHeight;
 };
 
