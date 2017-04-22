@@ -8,7 +8,7 @@ form.onsubmit = (action) => {
 document.getElementById('login').onclick = () => {
   require.ensure([], (require) => {
     var AJAXrequest = require('../request');
-    AJAXrequest
+    AJAXrequest('login')
       .then(
         result => {
           window.location.href = '/webchat';

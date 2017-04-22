@@ -73,4 +73,20 @@ schema.statics.authorize=(username, password) => {
   });
 };
 
+schema.statics.removeUser = (id) => {
+  const User = this.User;
+
+  return new Promise((resolve, reject) => {
+    log.info('user model id: '+ id);
+    User.deleteOne({ "_id" : id }).exec((err) => {
+      if(err){
+        reject();
+      }
+      else{
+        resolve();
+      }
+    });
+  });
+};
+
 exports.User = mongoose.model('User', schema);

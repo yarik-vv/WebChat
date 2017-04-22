@@ -27,7 +27,7 @@
 
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		2: 0
+/******/ 		3: 0
 /******/ 	};
 
 /******/ 	// The require function
@@ -137,123 +137,28 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 4:
+/***/ 3:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-'use scrict';
-//(function () {
 
-document.getElementById('logout').onclick = function () {
-  __webpack_require__.e/* require.ensure */(0).then((function (require) {
-    var logout = __webpack_require__(1);
-    logout();
+function remove(id) {
+  __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {
+    var AJAXrequest = __webpack_require__(0);
+    AJAXrequest.then(function (result) {
+      alert('UDALENO');
+    }, function (error) {
+      document.getElementById('error').innerHTML = error.message;
+    });
+    return false;
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
-};
-
-var form = document.querySelector('form[name="webchat"]');
-form.onsubmit = function (action) {
-  action.preventDefault();
-};
-var input = document.querySelector('form[name="webchat"] input');
-var sendButton = document.querySelector('button[type="submit"]');
-var chat = document.getElementById('room');
-
-var scrollHeight = 999999;
-
-var socket = io('', {
-  'reconnectionAttempts': 30,
-  'reconnectionDelay': 500
-});
-
-socket.on('message', function (username, message) {
-  printMessage(message, username);
-}).on('leave', function (username) {
-  printStatus(username + " покинул чат", "#d6f1e9");
-}).on('join', function (username) {
-  printStatus(username + " зашел в чат", "#d6f1e9");
-}).on('connect', function () {
-  printStatus("Соединение установлено", "#26fa88");
-  form.addEventListener('submit', sendMessage);
-  input.disabled = false;
-  sendButton.disabled = false;
-}).on('disconnect', function () {
-  printStatus("Переподключение...", "#f1d6ee");
-  form.removeEventListener('submit', sendMessage);
-  input.disabled = true;
-  sendButton.disabled = true;
-}).on('logout', function () {
-  location.href = "/";
-}).on('error', function (reason) {
-  if (reason == "handshake unauthorized") {
-    printStatus("Вы покинули чат");
-  }
-}).on('reconnect_failed', function () {
-  printStatus("Соединение потеряно", "#f1d6ee");
-});
-
-var sendMessage = function sendMessage() {
-  var text = input.value;
-  socket.emit('message', text, function (data) {
-    printMessage(data, 'you');
-  });
-  input.value = '';
-  return false;
-};
-
-var currentTime = function currentTime() {
-  var date = new Date();
-  var hours = date.getHours();
-  var minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = '0' + date.getMinutes();
-  }
-  return hours + ':' + minutes;
-};
-
-var printMessage = function printMessage(text, username) {
-  var message = document.createElement('li');
-  message.className = 'message';
-  if (username == 'you') {
-    message.style.alignSelf = 'flex-end';
-    message.style.backgroundColor = '#5dd0e1';
-    message.style.borderBottomRightRadius = '0';
-  } else {
-    message.style.alignSelf = 'flex-start';
-    message.style.backgroundColor = '#fcfd45';
-    message.style.borderBottomLeftRadius = '0px';
-  }
-  message.innerHTML = text;
-  chat.appendChild(message);
-
-  var description = document.createElement('span');
-  description.className = 'description';
-  if (username == 'you') {
-    description.style.alignSelf = 'flex-end';
-  } else {
-    description.style.alignSelf = 'flex-start';
-  }
-  description.innerHTML = username + ', ' + currentTime();
-  chat.appendChild(description);
-
-  chat.scrollTop = scrollHeight;
-};
-
-var printStatus = function printStatus(status, color) {
-  var statusMessage = document.createElement('li');
-  statusMessage.className = 'log';
-  statusMessage.style.backgroundColor = color;
-  statusMessage.innerHTML = status;
-  chat.appendChild(statusMessage);
-  chat.scrollTop = scrollHeight;
-};
-//})();
+}
 
 /***/ })
 

@@ -3,13 +3,16 @@ extends layout
 block content
   link(rel='stylesheet', href='/css/users.css')
   body
-    p#title= 'Selected user:'
-    div#user
-      p='Username: ' + user.username
-      p='Id: ' + user.id
-      p='Hash: ' + user.hashedPassword
-      p='Registration date: ' + user.created
-    nav.menu
-      a(href='/users')= 'Back to users list'
-      a(href='/webchat')= 'Webchat'
-      a(href='/logout')= 'Logout'
+    form(action='/',name='login',method='post')
+      p#title= 'Selected user:'
+      div#user
+        p='Username: ' + user.username
+        p='Id: ' + user.id
+        p='Hash: ' + user.hashedPassword
+        p='Registration date: ' + user.created
+      nav.menu
+        a(href='/users')= 'Back to users list'
+        a#remove= 'Remove this user'
+        a(href='/webchat')= 'Webchat'
+        a(href='/logout')= 'Logout'
+    //script(src='/js/user.js')

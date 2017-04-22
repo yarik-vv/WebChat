@@ -5,28 +5,36 @@ webpackJsonp([1],[
 "use strict";
 
 
-var AJAXrequest = new Promise(function (resolve, reject) {
-  var form = document.forms['login'];
-  var data = serialize(form);
-  var request = new XMLHttpRequest();
-  request.onreadystatechange = function () {
-    if (request.readyState === XMLHttpRequest.DONE) {
-      console.log(request.readyState, request.status, request.responseText);
-      console.log(request.responseText);
-      if (request.status === 200) {
-        resolve();
-      } else {
-        var error = JSON.parse(request.responseText);
-        reject(error);
-      }
+function AJAXrequest(id) {
+  return new Promise(function (resolve, reject) {
+    if (id === 'login') {
+      var form = document.forms['login'];
+      var data = serialize(form);
+      var path = '/';
+    } else {
+      var data = "id=" + encodeURIComponent(id);
+      var path = '/users';
     }
-  };
-  request.open('POST', '/');
-  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded', "text/html");
-  request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-  request.send(data);
-  //console.log('send request');
-});
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+      if (request.readyState === XMLHttpRequest.DONE) {
+        console.log(request.readyState, request.status, request.responseText);
+        console.log(request.responseText);
+        if (request.status === 200) {
+          resolve();
+        } else {
+          reject();
+        }
+      }
+    };
+    request.open('POST', path);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded', "text/html");
+    request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    console.log('[request.js] start request with data: ' + data);
+    request.send(data);
+  });
+}
 
 function serialize(selectForm) {
   var string = [];
