@@ -27,7 +27,7 @@
 
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		4: 0
+/******/ 		2: 0
 /******/ 	};
 
 /******/ 	// The require function
@@ -137,21 +137,41 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 4:
+/***/ 1:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var form = document.querySelector('form[name="login"]');
-form.onsubmit = function (action) {
-  action.preventDefault();
-};
+function submitOff(form) {
+  form = document.querySelector(form);
+  form.onsubmit = function (action) {
+    action.preventDefault();
+  };
+}
+
+module.exports = submitOff;
+
+/***/ }),
+
+/***/ 5:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _shared = __webpack_require__(1);
+
+var _shared2 = _interopRequireDefault(_shared);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _shared2.default)('form[name="login"]');
 
 document.getElementById('login').onclick = function () {
   __webpack_require__.e/* require.ensure */(0).then((function (require) {

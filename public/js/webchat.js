@@ -137,7 +137,7 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -148,11 +148,27 @@
 "use strict";
 
 
-var _status = __webpack_require__(3);
+function submitOff(form) {
+  form = document.querySelector(form);
+  form.onsubmit = function (action) {
+    action.preventDefault();
+  };
+}
+
+module.exports = submitOff;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _status = __webpack_require__(4);
 
 var _status2 = _interopRequireDefault(_status);
 
-var _message = __webpack_require__(2);
+var _message = __webpack_require__(3);
 
 var _message2 = _interopRequireDefault(_message);
 
@@ -207,7 +223,7 @@ function websockets() {
 module.exports = websockets;
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -257,7 +273,7 @@ function printMessage(text, username) {
 module.exports = printMessage;
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -279,28 +295,28 @@ function printStatus(status, color) {
 module.exports = printStatus;
 
 /***/ }),
-/* 4 */,
 /* 5 */,
 /* 6 */,
-/* 7 */
+/* 7 */,
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 'use scrict';
 
-var _websockets = __webpack_require__(1);
+var _websockets = __webpack_require__(2);
 
 var _websockets2 = _interopRequireDefault(_websockets);
 
+var _shared = __webpack_require__(1);
+
+var _shared2 = _interopRequireDefault(_shared);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+(0, _shared2.default)('form[name="webchat"]');
 (0, _websockets2.default)();
-
-var form = document.querySelector('form[name="webchat"]');
-form.onsubmit = function (action) {
-  action.preventDefault();
-};
 
 document.getElementById('logout').onclick = function () {
   __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {

@@ -1,9 +1,7 @@
 'use strict';
 
-const form = document.querySelector('form[name="login"]');
-form.onsubmit = (action) => {
-  action.preventDefault();
-};
+import submitOff from '../shared';
+submitOff('form[name="login"]')
 
 document.getElementById('login').onclick = () => {
   require.ensure([], (require) => {

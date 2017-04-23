@@ -1,12 +1,10 @@
 'use scrict';
 
 import websockets from './websockets';
-websockets();
+import submitOff from '../../shared';
 
-const form = document.querySelector('form[name="webchat"]');
-form.onsubmit = (action) => {
-  action.preventDefault();
-};
+submitOff('form[name="webchat"]');
+websockets();
 
 document.getElementById('logout').onclick = () => {
   require.ensure([], (require) => {
