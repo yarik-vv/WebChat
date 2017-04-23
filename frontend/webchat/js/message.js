@@ -3,7 +3,7 @@
 const chat = document.getElementById('room');
 const scrollHeight = 999999;
 
-const currentTime = function () {
+function currentTime() {
   let date = new Date();
   let hours = date.getHours();
   let minutes = date.getMinutes();
@@ -13,7 +13,7 @@ const currentTime = function () {
   return hours + ':' + minutes;
 }
 
-const printMessage = function (text, username) {
+function printMessage(text, username) {
   let message = document.createElement('li');
   message.className = 'message';
   if (username == 'you') {

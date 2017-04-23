@@ -3,7 +3,7 @@
 const chat = document.getElementById('room');
 const scrollHeight = 999999;
 
-const printStatus = (status, color) => {
+function printStatus(status, color){
   let statusMessage = document.createElement('li');
     statusMessage.className = 'log';
     statusMessage.style.backgroundColor = color;
