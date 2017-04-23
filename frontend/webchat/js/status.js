@@ -1,3 +1,5 @@
+'use scrict';
+
 const chat = document.getElementById('room');
 const scrollHeight = 999999;
 

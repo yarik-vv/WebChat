@@ -21,13 +21,12 @@ document.getElementById('logout').onclick = () => {
   form.onsubmit = (action) => {
     action.preventDefault();
   };
+
   const input = document.querySelector('form[name="webchat"] input');
   const sendButton = document.querySelector('button[type="submit"]');
-  const chat = document.getElementById('room');
 
-  import status from './printStatus';
-
-  const scrollHeight = 999999;
+  import status from './status';
+  import print from './message';
 
   const socket = io('', {
     'reconnectionAttempts': 30,
@@ -36,7 +35,7 @@ document.getElementById('logout').onclick = () => {
 
   socket
     .on('message', function (username, message) {
-      printMessage(message, username);
+      print(message, username);
     })
     .on('leave', function (username) {
       status(username + " покинул чат", "#d6f1e9");
@@ -46,13 +45,13 @@ document.getElementById('logout').onclick = () => {
     })
     .on('connect', function () {
       status("Соединение установлено", "#26fa88");
-      form.addEventListener('submit', sendMessage);
+      form.addEventListener('submit', send);
       input.disabled = false;
       sendButton.disabled = false;
     })
     .on('disconnect', function () {
       status("Переподключение...", "#f1d6ee");
-      form.removeEventListener('submit', sendMessage);
+      form.removeEventListener('submit', send);
       input.disabled = true;
       sendButton.disabled = true;
     })
@@ -68,51 +67,11 @@ document.getElementById('logout').onclick = () => {
       status("Соединение потеряно", "#f1d6ee");
     });
 
-  const sendMessage = function () {
+  const send = function () {
     const text = input.value;
     socket.emit('message', text, function (data) {
-      printMessage(data, 'you')
+      print(data, 'you')
     });
     input.value = '';
     return false;
-  }
-
-  const currentTime = function(){
-    let date = new Date();
-      let hours = date.getHours();
-      let minutes = date.getMinutes();
-      if(minutes<10){
-        minutes = '0' + date.getMinutes();
-      }
-    return hours + ':' + minutes;
-  }
-
-  const printMessage = function (text, username) {
-    let message = document.createElement('li');
-      message.className = 'message';
-      if(username=='you'){
-        message.style.alignSelf = 'flex-end';
-        message.style.backgroundColor = '#5dd0e1';
-        message.style.borderBottomRightRadius = '0';
-      }
-      else{
-        message.style.alignSelf = 'flex-start';
-        message.style.backgroundColor = '#fcfd45';
-        message.style.borderBottomLeftRadius = '0px';
-      }
-      message.innerHTML = text;
-    chat.appendChild(message);
-
-    let description = document.createElement('span');
-      description.className = 'description';
-      if(username=='you'){
-        description.style.alignSelf = 'flex-end';
-      }
-      else{
-        description.style.alignSelf = 'flex-start';
-      }
-      description.innerHTML = username + ', ' + currentTime();
-    chat.appendChild(description);
-
-    chat.scrollTop = scrollHeight;
   }
