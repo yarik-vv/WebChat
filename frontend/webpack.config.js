@@ -52,7 +52,11 @@ module.exports = {
   },
     
   plugins: [
-    //new BundleAnalyzerPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "common",
+      minChunks: 2
+    }),
+    new BundleAnalyzerPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
