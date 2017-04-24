@@ -1,4 +1,4 @@
-@mixin kek($color){
+@mixin button($color, $hover-color){
   color: $color;
   font-size: 5vh;
   text-decoration: none;
@@ -13,7 +13,9 @@
 
   &:hover{
     cursor: pointer;
-    border-color: white;
-    color: white;
+    border-color: $hover-color;
+    color: $hover-color;
   }
 }
+
+$primary-font: Bubbler One, sans-serif;

@@ -1,27 +1,7 @@
-@import url('../shared/fonts/main.scss');
-
-//@mixin kek($color){
-//  color: $color;
-//  font-size: 5vh;
-//  text-decoration: none;
-//
-//  border: 1px solid $color;
-//  border-radius: 15px;
-//
-//  padding: 1vh;
-//  padding-left: 2vh;
-//  padding-right: 2vh;
-//  margin-top: 5vh;
-//
-//  &:hover{
-//    cursor: pointer;
-//    border-color: white;
-//    color: white;
-//  }
-//}
+@import '../shared/mixins';
 
 body{
-  font-family: Bubbler One, sans-serif;
+  font-family: $primary-font;
   color: black;
 }
 
@@ -35,5 +15,5 @@ span{
 }
 
 a{
-  @include kek(black);
+  @include button(black, white);
 }
