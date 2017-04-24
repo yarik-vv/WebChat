@@ -1,0 +1,19 @@
+@mixin kek($color){
+  color: $color;
+  font-size: 5vh;
+  text-decoration: none;
+
+  border: 1px solid $color;
+  border-radius: 15px;
+
+  padding: 1vh;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  margin-top: 5vh;
+
+  &:hover{
+    cursor: pointer;
+    border-color: white;
+    color: white;
+  }
+}

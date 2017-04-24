@@ -48,15 +48,24 @@ module.exports = {
           presets: ["es2015"]
         }
       }]
-    }],
+    },
+//    {
+//      test: /\.scss$/,
+//      use: [
+//        {loader: "style-loader"},
+//        {loader: "css-loader"},
+//        {loader: "sass-loader"}
+//      ]
+//    }
+    ]
   },
     
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: "common",
-      minChunks: 2
-    }),
-    new BundleAnalyzerPlugin(),
+//    new webpack.optimize.CommonsChunkPlugin({
+//      name: "common",
+//      minChunks: 2
+//    }),
+    //new BundleAnalyzerPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)

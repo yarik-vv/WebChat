@@ -3,7 +3,9 @@
 const gulp = require('gulp');
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
-var rename = require("gulp-rename");
+const sourcemaps = require('gulp-sourcemaps');
+const rename = require("gulp-rename");
+const sass = require('gulp-sass');
 const del = require('del');
 
 gulp.task('clean', function() {
@@ -40,8 +42,11 @@ gulp.task('images', function() {
     .pipe(gulp.dest('./public'));
 });
 
-gulp.task('css', function() {
-  return gulp.src('frontend/**/*.css')
+gulp.task('saas', function() {
+  return gulp.src('frontend/**/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write())
     .pipe(rename({
       dirname: "css"
     }))
@@ -56,7 +61,7 @@ gulp.task('js', function() {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('build', gulp.series('clean', 'templates', 'fonts', 'images', 'css', 'js'));
+gulp.task('build', gulp.series('clean', 'templates', 'fonts', 'images', 'saas', 'js'));
 
 gulp.task('dev', 
   gulp.series(
@@ -65,7 +70,7 @@ gulp.task('dev',
       gulp.watch('frontend/**/*.jade', gulp.series('templates'));
       gulp.watch('frontend/**/*.{woff,woff2}', gulp.series('fonts'));
       gulp.watch('frontend/**/*.{jpg,png,svg}', gulp.series('images'));
-      gulp.watch('frontend/**/*.css', gulp.series('css'));
+      gulp.watch('frontend/**/*.scss', gulp.series('saas'));
       gulp.watch('frontend/**/*.js', gulp.series('js'));
     })
   )

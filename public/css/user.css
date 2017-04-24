@@ -1,16 +1,15 @@
 #user {
   align-self: center;
   color: white;
-
   border: 1px solid white;
   border-radius: 15px;
-
   padding: 2vh;
   padding-left: 2vh;
   padding-right: 2vh;
   margin-top: 20vh;
-  margin-bottom: 15vh;
-}
-#user p{
-  margin: 2vh;
-}
+  margin-bottom: 15vh; }
+
+#user p {
+  margin: 2vh; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidXNlci91c2VyLmNzcyIsInNvdXJjZXMiOlsidXNlci91c2VyLnNjc3MiXSwic291cmNlc0NvbnRlbnQiOlsiI3VzZXIge1xuICBhbGlnbi1zZWxmOiBjZW50ZXI7XG4gIGNvbG9yOiB3aGl0ZTtcblxuICBib3JkZXI6IDFweCBzb2xpZCB3aGl0ZTtcbiAgYm9yZGVyLXJhZGl1czogMTVweDtcblxuICBwYWRkaW5nOiAydmg7XG4gIHBhZGRpbmctbGVmdDogMnZoO1xuICBwYWRkaW5nLXJpZ2h0OiAydmg7XG4gIG1hcmdpbi10b3A6IDIwdmg7XG4gIG1hcmdpbi1ib3R0b206IDE1dmg7XG59XG4jdXNlciBwe1xuICBtYXJnaW46IDJ2aDtcbn1cbiJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxBQUFBLEtBQUssQ0FBQztFQUNKLFVBQVUsRUFBRSxNQUFNO0VBQ2xCLEtBQUssRUFBRSxLQUFLO0VBRVosTUFBTSxFQUFFLGVBQWU7RUFDdkIsYUFBYSxFQUFFLElBQUk7RUFFbkIsT0FBTyxFQUFFLEdBQUc7RUFDWixZQUFZLEVBQUUsR0FBRztFQUNqQixhQUFhLEVBQUUsR0FBRztFQUNsQixVQUFVLEVBQUUsSUFBSTtFQUNoQixhQUFhLEVBQUUsSUFBSSxHQUNwQjs7QUFDRCxBQUFNLEtBQUQsQ0FBQyxDQUFDLENBQUE7RUFDTCxNQUFNLEVBQUUsR0FBRyxHQUNaIn0= */

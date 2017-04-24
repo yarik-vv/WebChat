@@ -3,9 +3,8 @@
 extends layout
 
 block content
-  link(rel='stylesheet', href='/css/webchat.css')
   link(rel='stylesheet', href='/css/error.css')
   body
     i.icon-error
-    span.erorr-description= 'Sorry, ' + error.message
-    a.erorr-link(href='/')= 'Go to home page!'
+    span= 'Sorry, ' + error.message
+    a(href='/')= 'Go to home page!'
