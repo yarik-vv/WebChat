@@ -1,3 +1,5 @@
+$primary-font: Bubbler One, sans-serif;
+
 @mixin button($color, $hover-color){
   color: $color;
   font-size: 5vh;
@@ -18,4 +20,31 @@
   }
 }
 
-$primary-font: Bubbler One, sans-serif;
+@mixin menu($color, $hover-color){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  a{
+    color: $color;
+    font-family: $primary-font;
+    font-size: 5vh;
+    text-decoration: none;
+
+    border: 1px solid $color;
+    border-radius: 15px;
+
+    padding: 1vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    
+    margin-left: 5vh;
+    margin-right: 5vh;
+    
+    &:hover{
+      cursor: pointer;
+      border-color: $hover-color;
+      color: $hover-color;
+    }
+  }
+}
