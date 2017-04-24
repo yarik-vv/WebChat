@@ -1,16 +1,10 @@
+@import '../shared/mixins';
+
 #user {
-  align-self: center;
-  color: white;
-
-  border: 1px solid white;
-  border-radius: 15px;
-
-  padding: 2vh;
-  padding-left: 2vh;
-  padding-right: 2vh;
-  margin-top: 20vh;
+  @include button(white, white);
+  margin-top: 10vh;
   margin-bottom: 15vh;
-}
-#user p{
-  margin: 2vh;
+  p{
+    margin: 2vh;
+  }
 }

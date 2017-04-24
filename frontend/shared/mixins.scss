@@ -2,6 +2,7 @@ $primary-font: Bubbler One, sans-serif;
 
 @mixin button($color, $hover-color){
   color: $color;
+  font-family: $primary-font;
   font-size: 5vh;
   text-decoration: none;
 
