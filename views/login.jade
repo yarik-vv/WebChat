@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  link(rel='stylesheet', href='/css/login.css')
   form(action='/',name='login',method='post')
     div.signin
       i.icon-webchat
@@ -12,7 +13,7 @@ block content
       placeholder='Nickname',
       value='name'
     )
-    div.kek
+    div#password
       input(
         type='password',
         name='password',
