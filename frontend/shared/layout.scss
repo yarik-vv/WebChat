@@ -1,12 +1,16 @@
+@import '../shared/mixins';
+
 @import url('fonts.css');
 @import url('icons.css');
 
 html {
   overflow: hidden;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: $primary-font;
 }
 
-form,input,div,h1,p,ul,li,button{
+div,form,
+p,h1,ul,li,
+input,button{
   margin: 0;
   padding: 0;
 }
