@@ -1,3 +1,5 @@
+@import '../shared/mixins';
+
 #window{
   display: flex;
   flex-direction: column;
@@ -86,9 +88,10 @@ footer{
   border-top: none;
 
 
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+//  display: flex;
+//  flex-direction: row;
+//  justify-content: center;
+    @include flex-center(row);
 }
 form[name="webchat"] input{
   width: 100%;

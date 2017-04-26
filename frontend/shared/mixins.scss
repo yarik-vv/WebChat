@@ -1,5 +1,12 @@
 $primary-font: Bubbler One, sans-serif;
 
+@mixin flex-center($direction){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
 @mixin button($color, $hover-color){
   color: $color;
   font-family: $primary-font;
