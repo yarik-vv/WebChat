@@ -1,146 +1,83 @@
 @import '../shared/mixins';
 
+.signin{
+  width: 100%;
+  margin-bottom: 1vh;
+  @include flex-center(column);
+
+  h1{
+    font-family: Ubuntu, sans-serif;
+    font-weight: 400;
+    padding: 1vh;
+    font-size: 5vh;
+    color: white;
+  }
+
+  p{
+    font-family: Bubbler One, sans-serif;
+    color: white;
+    font-size: 3.4vh;
+
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+  }
+  i{
+    font-size: 13vh;
+    color: white;
+  }
+}
+
 form[name="login"]{
   width: 51vh;
   height: 100vh;
 
-  @include flex-center(column);
-
   position: relative;
   top: -5vh;
-
-/*  border: 1px solid black;*/
-}
-
-form[name="login"] input{
-  width: 92%;
-  height: 4vh;
-  outline: none;
-  border: none;
-  padding: 2vh;
-  padding-top: 1.5vh;
-  padding-bottom: 1.5vh;
-  font-size: 3vh;
-
-/*  border: 1px solid black;*/
-}
-
-form[name="login"] input[type="text"]{
-  border-radius: 0px;
-  border-top-right-radius: 6px;
-  border-top-left-radius: 6px;
-
-/*  border: 1px solid red;*/
-}
-
-form[name="login"] input[type="password"]{
-/*  margin-top: 2px;*/
-  border-radius: 0px;
-  border-bottom-left-radius: 6px;
-
-}
-
-/*
-form[name="login"] button{
-  height: 6vh;
-  width: 65px;
-  background: none;
-  border: none;
-  outline: none;
-
-  align-self: flex-end;
-  position: relative;
-  top: -6.3vh;
-  left: 0.5vh;
-
-  border: 1px solid black;
-
-  font-size: 5vh;
-  color: gray;
-}
-*/
-
-#password{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  margin-top: 2px;
-  width: 99.9%;
-
-/*  border: 1px solid blue;*/
-}
-
-form[name="login"] button{
-  height: 7vh;
-/*  width: 65px;*/
-  background: none;
-  border: none;
-  outline: none;
-
-/*  margin: 0;*/
-/*
-  align-self: flex-end;
-  position: relative;
-  top: -6.3vh;
-  left: 0.5vh;
-*/
-
-/*  border: 1px solid black;*/
-
-  font-size: 5vh;
-  color: gray;
-  background: white;
-  border-bottom-right-radius: 6px;
-/*  border: 1px solid black;*/
-}
-
-form[name="login"] button:hover{
-  color: #26fa88;
-}
-.signin{
-  width: 100%;
-  margin-bottom: 1vh;
-
   @include flex-center(column);
-}
 
-.signin h1{
-  font-family: Ubuntu, sans-serif;
-  font-weight: 400;
-  padding: 1vh;
-  font-size: 5vh;
-  color: white;
-}
+  input{
+    width: 92%;
+    height: 4vh;
+    outline: none;
+    border: none;
+    padding: 2vh;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+    font-size: 3vh;
+  }
 
-.signin p{
-  font-family: Bubbler One, sans-serif;
-  color: white;
-  font-size: 3.4vh;
+  input[type="text"]{
+    border-radius: 0px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+  }
 
-  margin-top: 1.5vh;
-  margin-bottom: 1.5vh;
-}
-.signin i{
-  font-size: 13vh;
-  color: white;
-}
-.links{
-  position: relative;
-  top: 24vh;
+  input[type="password"]{
+    border-radius: 0px;
+    border-bottom-left-radius: 6px;
+  }
 
-  @include flex-center(row);
-}
-.links a{
-  color: white;
-  font-size: 4vh;
-  text-decoration: none;
-}
+  #password{
+    @include flex-center(row);
+    margin-top: 2px;
+    width: 99.9%;
+  }
 
-.links a:hover{
-  color: black;
+  button{
+    height: 7vh;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 5vh;
+    color: gray;
+    background: white;
+    border-bottom-right-radius: 6px;
+    &:hover{
+      color: #26fa88;
+    }
+  }
 }
+  
 #error{
   position: relative;
   margin-top: 2vh;
@@ -148,5 +85,18 @@ form[name="login"] button:hover{
   font-family: Ubuntu, sans-serif;
   font-size: 3vh;
   height: 3vh;
-/*  border: 1px solid black;*/
+}
+
+.links{
+  @include flex-center(row);
+  position: relative;
+  top: 24vh;
+  
+  a{
+  color: white;
+  font-size: 4vh;
+  text-decoration: none;
+  &:hover{
+    color: black;
+  }}
 }
