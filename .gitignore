@@ -2,4 +2,5 @@
 /bower_components
 /frontend/build
 /public/vendor
+/public/css
 npm-debug.log
