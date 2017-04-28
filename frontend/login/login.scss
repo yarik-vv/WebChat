@@ -1,11 +1,12 @@
 @import '../shared/mixins';
 
-.signin{
+.signin {
   width: 100%;
   margin-bottom: 1vh;
+
   @include flex-center(column);
 
-  h1{
+  h1 {
     font-family: $secondary-font;
     font-weight: 400;
     padding: 1vh;
@@ -13,7 +14,7 @@
     color: white;
   }
 
-  p{
+  p {
 //    font-family: $primary-font;
     color: white;
     font-size: 3.4vh;
@@ -21,21 +22,23 @@
     margin-top: 1.5vh;
     margin-bottom: 1.5vh;
   }
-  i{
+
+  i {
     font-size: 13vh;
     color: white;
   }
 }
 
-form[name="login"]{
+form[name="login"] {
   width: 51vh;
   height: 100vh;
 
   position: relative;
   top: -5vh;
+
   @include flex-center(column);
 
-  input{
+  input {
     width: 92%;
     height: 4vh;
     outline: none;
@@ -46,24 +49,24 @@ form[name="login"]{
     font-size: 3vh;
   }
 
-  input[type="text"]{
+  input[type="text"] {
     border-radius: 0px;
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
   }
 
-  input[type="password"]{
+  input[type="password"] {
     border-radius: 0px;
     border-bottom-left-radius: 6px;
   }
 
-  #password{
+  #password {
     @include flex-center(row);
     margin-top: 2px;
     width: 99.9%;
   }
 
-  button{
+  button {
     height: 7vh;
     background: none;
     border: none;
@@ -78,7 +81,7 @@ form[name="login"]{
   }
 }
   
-#error{
+#error {
   position: relative;
   margin-top: 2vh;
   color: #fb5757;
@@ -87,16 +90,16 @@ form[name="login"]{
   height: 3vh;
 }
 
-.links{
+.links {
   @include flex-center(row);
   position: relative;
   top: 24vh;
   
-  a{
+  a {
   color: white;
   font-size: 4vh;
   text-decoration: none;
-  &:hover{
+  &:hover {
     color: black;
   }}
 }

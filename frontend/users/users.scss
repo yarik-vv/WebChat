@@ -39,7 +39,7 @@ body {
   }
   
   a, 
-  button{
+  button {
     font-family: $primary-font;
     color: white;
     font-size: 5vh;
@@ -49,23 +49,23 @@ body {
     }
   }
 
-  a{
+  a {
     margin-right: 10vw;
     text-decoration: none;
     
-    #username{
+    #username {
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
     }
     
-    #id{
+    #id {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
       border-left: none;
     }
   }
   
-  span, button{
+  span, button {
     padding: 1vh;
     padding-left: 2vh;
     padding-right: 2vh;

@@ -1,19 +1,19 @@
 @import '../shared/mixins';
 
-body{
+body {
   font-family: $primary-font;
   color: black;
 }
 
-i.icon-error{
+i.icon-error {
   font-size: 20vh;
   margin-bottom: 3vh;
 }
 
-span{
+span {
   font-size: 6vh;
 }
 
-a{
+a {
   @include button(black, white);
 }

@@ -1,6 +1,6 @@
 @import '../shared/mixins';
 
-#window{
+#window {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,7 +9,7 @@
   box-shadow: 5px 5px 100px -20px #393232;
 }
 
-header{
+header {
   height: 4vh;
   background: gray;
 
@@ -25,7 +25,7 @@ header{
   align-items: center;
 }
 
-#logout{
+#logout {
   border: none;
   width: 2.5vh;
   height: 2.5vh;
@@ -34,7 +34,7 @@ header{
   margin-left: 1vh;
 }
 
-#logout-hover{
+#logout-hover {
   background: url(../close-hover.png) no-repeat;
   background-size: cover;
 
@@ -46,7 +46,7 @@ header{
   }
 }
 
-form[name="webchat"]{
+form[name="webchat"] {
   width: 100vh;
   height: 70vh;
 
@@ -128,19 +128,19 @@ footer {
   }
 }
 
-@media (max-width: 619px), (orientation: portrait){
-  header, footer{
+@media (max-width: 619px), (orientation: portrait) {
+  header, footer {
     border-radius: 0;
     border: 0;
   }
-  form[name="webchat"]{
+  form[name="webchat"] {
     width: 100vw;
     height: 96.5vh;
   }
-  ul{
+  ul {
     height: 88vh;
     border: 0;
-    li{
+    li {
       max-width: 75vw;
     }
   }

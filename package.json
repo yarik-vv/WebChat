@@ -17,6 +17,7 @@
     "express-session": "^1.15.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-rename": "^1.2.2",
+    "gulp-stylelint": "^3.9.0",
     "jade": "~1.11.0",
     "mongodb": "^2.2.25",
     "mongoose": "^4.9.1",
@@ -41,6 +42,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
+    "stylelint-config-standard": "^16.0.0",
     "webpack": "^2.3.2",
     "webpack-bundle-analyzer": "^2.3.1"
   }
