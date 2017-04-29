@@ -2,6 +2,7 @@
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
@@ -39,12 +40,12 @@ module.exports = {
 
   module: {
     rules: [
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader",
-      },
+//      {
+//        enforce: "pre",
+//        test: /\.js$/,
+//        exclude: /node_modules/,
+//        loader: "eslint-loader",
+//      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -52,7 +53,9 @@ module.exports = {
         use: [{
           loader: "babel-loader",
           options: {
-            presets: ["es2015"]
+            presets: [
+              ['es2015', { modules: false }]
+            ]
           }
         }]
       },
@@ -73,6 +76,7 @@ module.exports = {
 //      minChunks: 2
 //    }),
     //new BundleAnalyzerPlugin(),
+    new HtmlWebpackPlugin({ title: 'Tree-shaking' }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
