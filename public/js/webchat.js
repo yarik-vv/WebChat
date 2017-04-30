@@ -137,7 +137,7 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -159,20 +159,15 @@ module.exports = submitOff;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__status__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__status___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__status__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__message___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__message__);
 
 
-var _status = __webpack_require__(4);
-
-var _status2 = _interopRequireDefault(_status);
-
-var _message = __webpack_require__(3);
-
-var _message2 = _interopRequireDefault(_message);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var form = document.querySelector('form[name="webchat"]');
 var input = document.querySelector('form[name="webchat"] input');
@@ -185,18 +180,18 @@ var socket = io('', {
 
 function websockets() {
   socket.on('message', function (username, message) {
-    (0, _message2.default)(message, username);
+    __WEBPACK_IMPORTED_MODULE_1__message___default()(message, username);
   }).on('leave', function (username) {
-    (0, _status2.default)(username + " покинул чат", "#d6f1e9");
+    __WEBPACK_IMPORTED_MODULE_0__status___default()(username + " покинул чат", "#d6f1e9");
   }).on('join', function (username) {
-    (0, _status2.default)(username + " зашел в чат", "#d6f1e9");
+    __WEBPACK_IMPORTED_MODULE_0__status___default()(username + " зашел в чат", "#d6f1e9");
   }).on('connect', function () {
-    (0, _status2.default)("Соединение установлено", "#26fa88");
+    __WEBPACK_IMPORTED_MODULE_0__status___default()("Соединение установлено", "#26fa88");
     form.addEventListener('submit', send);
     input.disabled = false;
     sendButton.disabled = false;
   }).on('disconnect', function () {
-    (0, _status2.default)("Переподключение...", "#f1d6ee");
+    __WEBPACK_IMPORTED_MODULE_0__status___default()("Переподключение...", "#f1d6ee");
     form.removeEventListener('submit', send);
     input.disabled = true;
     sendButton.disabled = true;
@@ -204,16 +199,16 @@ function websockets() {
     location.href = "/";
   }).on('error', function (reason) {
     if (reason == "handshake unauthorized") {
-      (0, _status2.default)("Вы покинули чат");
+      __WEBPACK_IMPORTED_MODULE_0__status___default()("Вы покинули чат");
     }
   }).on('reconnect_failed', function () {
-    (0, _status2.default)("Соединение потеряно", "#f1d6ee");
+    __WEBPACK_IMPORTED_MODULE_0__status___default()("Соединение потеряно", "#f1d6ee");
   });
 
   function send() {
     var text = input.value;
     socket.emit('message', text, function (data) {
-      (0, _message2.default)(data, 'you');
+      __WEBPACK_IMPORTED_MODULE_1__message___default()(data, 'you');
     });
     input.value = '';
     return false;
@@ -221,12 +216,11 @@ function websockets() {
 }
 
 module.exports = websockets;
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(5)(module)))
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
+/***/ (function(module, exports) {
 
 'use scrict';
 
@@ -274,9 +268,7 @@ module.exports = printMessage;
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
+/***/ (function(module, exports) {
 
 'use scrict';
 
@@ -295,28 +287,54 @@ function printStatus(status, color) {
 module.exports = printStatus;
 
 /***/ }),
-/* 5 */,
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = function(originalModule) {
+	if(!originalModule.webpackPolyfill) {
+		var module = Object.create(originalModule);
+		// module.parent = undefined by default
+		if(!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		Object.defineProperty(module, "exports", {
+			enumerable: true,
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
 /* 6 */,
 /* 7 */,
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 8 */,
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__websockets__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__shared___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__shared__);
 'use scrict';
 
-var _websockets = __webpack_require__(2);
 
-var _websockets2 = _interopRequireDefault(_websockets);
 
-var _shared = __webpack_require__(1);
 
-var _shared2 = _interopRequireDefault(_shared);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(0, _shared2.default)('form[name="webchat"]');
-(0, _websockets2.default)();
+__WEBPACK_IMPORTED_MODULE_1__shared___default()('form[name="webchat"]');
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__websockets__["default"])();
 
 document.getElementById('logout').onclick = function () {
   __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {

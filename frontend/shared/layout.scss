@@ -23,6 +23,6 @@ body {
 
   @include flex-center(column);
 
-  background: url("../background.jpg") center fixed;
+  background: $background;
   background-size: cover;
 }

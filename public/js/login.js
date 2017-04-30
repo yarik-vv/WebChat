@@ -137,7 +137,7 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -159,19 +159,17 @@ module.exports = submitOff;
 
 /***/ }),
 
-/***/ 5:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ 6:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__shared___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__shared__);
 
 
-var _shared = __webpack_require__(1);
 
-var _shared2 = _interopRequireDefault(_shared);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(0, _shared2.default)('form[name="login"]');
+__WEBPACK_IMPORTED_MODULE_0__shared___default()('form[name="login"]');
 
 document.getElementById('login').onclick = function () {
   __webpack_require__.e/* require.ensure */(0).then((function (require) {
