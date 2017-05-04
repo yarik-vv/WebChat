@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Bubbler One';
   src: url("../fonts/BubblerOne.woff2") format("woff2"), 
-       url("fonts/BubblerOne.woff") format("woff");
+       url("../fonts/BubblerOne.woff") format("woff");
   font-style: normal;
   font-weight: 400;
 }
@@ -9,7 +9,25 @@
 @font-face {
   font-family: 'Ubuntu';
   src: url("../fonts/Ubuntu.woff2") format("woff2"), 
-       url("fonts/Ubuntu.woff") format("woff");
+       url("../fonts/Ubuntu.woff") format("woff");
   font-style: normal;
   font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Message';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/message-cyrillic.woff2") format("woff2"), 
+       url("../fonts/message-latin.woff") format("woff");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+@font-face {
+  font-family: 'Message';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/message-latin.woff2") format("woff2"), 
+       url("../fonts/message-latin.woff") format("woff");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }

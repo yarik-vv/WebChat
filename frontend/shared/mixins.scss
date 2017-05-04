@@ -2,6 +2,7 @@ $primary-font: Bubbler One, sans-serif;
 $secondary-font: Ubuntu, sans-serif;
 $background: url("../background.jpg") center fixed;
 $admin-background: url('../admin-panel-background.jpg') center fixed;
+$message-font: Message, sans-serif;
 
 @mixin flex-center($direction){
   display: flex;
