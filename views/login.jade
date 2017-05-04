@@ -4,21 +4,24 @@ block content
   link(rel='stylesheet', href='/css/login.css')
   form(action='/',name='login',method='post')
     div.signin
-      i.icon-webchat
-      h1= title
+      img#logo(
+        src='/logo.png', 
+        alt='logo'
+      )
+      h1= 'Sign in to Travelchat'
       p= 'Please enter your name and password'
     input(
       type='text',
       name='username',
       placeholder='Nickname',
-      value='name'
+      value=''
     )
     div#password
       input(
         type='password',
         name='password',
         placeholder='Password',
-        value='pass'
+        value=''
       )
       button#login.icon-login(
         data-loading-text="Sending..."

@@ -27,6 +27,7 @@ function AJAXrequest(id) {
         if (request.status === 200) {
           resolve();
         } else {
+          //let message = request.responseText.message;
           reject();
         }
       }

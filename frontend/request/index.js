@@ -25,6 +25,7 @@ function AJAXrequest(id){
           resolve();
         }
         else{
+          //let message = request.responseText.message;
           reject();
         }
       }

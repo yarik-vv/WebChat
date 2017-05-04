@@ -12,7 +12,7 @@ document.getElementById('login').onclick = () => {
           window.location.href = '/travelchat';
         },
         error => {
-          document.getElementById('error').innerHTML = error.message;
+          document.getElementById('error').innerHTML = message;
         }
       );
     return false;

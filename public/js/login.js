@@ -179,7 +179,7 @@ document.getElementById('login').onclick = function () {
     AJAXrequest('login').then(function (result) {
       window.location.href = '/travelchat';
     }, function (error) {
-      document.getElementById('error').innerHTML = error.message;
+      document.getElementById('error').innerHTML = message;
     });
     return false;
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
