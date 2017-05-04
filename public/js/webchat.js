@@ -187,16 +187,16 @@ function websockets() {
   socket.on('message', function (username, message) {
     (0, _message2.default)(message, username);
   }).on('leave', function (username) {
-    (0, _status2.default)(username + " покинул чат", "#d6f1e9");
+    (0, _status2.default)(username + " leave the chat", "#d6f1e9");
   }).on('join', function (username) {
-    (0, _status2.default)(username + " зашел в чат", "#d6f1e9");
+    (0, _status2.default)(username + " joined the chat", "#d6f1e9");
   }).on('connect', function () {
-    (0, _status2.default)("Соединение установлено", "#26fa88");
+    (0, _status2.default)("Connected to the chat", "#26fa88");
     form.addEventListener('submit', send);
     input.disabled = false;
     sendButton.disabled = false;
   }).on('disconnect', function () {
-    (0, _status2.default)("Переподключение...", "#f1d6ee");
+    (0, _status2.default)("Waiting for network...", "#f1d6ee");
     form.removeEventListener('submit', send);
     input.disabled = true;
     sendButton.disabled = true;
@@ -204,10 +204,10 @@ function websockets() {
     location.href = "/";
   }).on('error', function (reason) {
     if (reason == "handshake unauthorized") {
-      (0, _status2.default)("Вы покинули чат");
+      (0, _status2.default)("You leave the chat");
     }
   }).on('reconnect_failed', function () {
-    (0, _status2.default)("Соединение потеряно", "#f1d6ee");
+    (0, _status2.default)("Connection lost", "#f1d6ee");
   });
 
   function send() {

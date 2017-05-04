@@ -16,19 +16,19 @@ function websockets () {
       print(message, username);
     })
     .on('leave', (username) => {
-      status(username + " покинул чат", "#d6f1e9");
+      status(username + " leave the chat", "#d6f1e9");
     })
     .on('join', (username) => {
-      status(username + " зашел в чат", "#d6f1e9");
+      status(username + " joined the chat", "#d6f1e9");
     })
     .on('connect', () => {
-      status("Соединение установлено", "#26fa88");
+      status("Connected to the chat", "#26fa88");
       form.addEventListener('submit', send);
       input.disabled = false;
       sendButton.disabled = false;
     })
     .on('disconnect', () => {
-      status("Переподключение...", "#f1d6ee");
+      status("Waiting for network...", "#f1d6ee");
       form.removeEventListener('submit', send);
       input.disabled = true;
       sendButton.disabled = true;
@@ -38,11 +38,11 @@ function websockets () {
     })
     .on('error', (reason) => {
       if (reason == "handshake unauthorized") {
-        status("Вы покинули чат");
+        status("You leave the chat");
       }
     })
     .on('reconnect_failed', function () {
-      status("Соединение потеряно", "#f1d6ee");
+      status("Connection lost", "#f1d6ee");
     });
 
   function send(){
