@@ -3,7 +3,7 @@
 import websockets from './websockets';
 import submitOff from '../../shared';
 
-submitOff('form[name="webchat"]');
+submitOff('form[name="chat"]');
 websockets();
 
 document.getElementById('logout').onclick = () => {

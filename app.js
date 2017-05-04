@@ -19,7 +19,7 @@ const log = require('libs/log')(module);
 
 //router
 const login = require('routes/login');
-const webchat = require('routes/webchat');
+const chat = require('routes/chat');
 const logout = require('routes/logout');
 const users = require('routes/users');
 const error = require('routes/error');
@@ -65,7 +65,7 @@ app.use(require('middleware/loadUser'));
 
 //router
 app.use('/', login);
-app.use('/webchat', webchat);
+app.use('/travelchat', chat);
 app.use('/logout', logout);
 app.use('/users', users);
 //if invalid url

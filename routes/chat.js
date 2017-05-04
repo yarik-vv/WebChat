@@ -5,9 +5,9 @@ const checkAuth = require('middleware/checkAuth');
 //check authorization
 router.use('/', checkAuth);
 
-//get to webchat page
+//get to chat page
 router.get('/', function(req, res, next) {
-  res.render('webchat', {title: 'webchat'});
+  res.render('chat', {title: 'Travelchat'});
 });
 
 module.exports = router;

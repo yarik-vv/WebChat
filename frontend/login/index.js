@@ -9,7 +9,7 @@ document.getElementById('login').onclick = () => {
     AJAXrequest('login')
       .then(
         result => {
-          window.location.href = '/webchat';
+          window.location.href = '/travelchat';
         },
         error => {
           document.getElementById('error').innerHTML = error.message;

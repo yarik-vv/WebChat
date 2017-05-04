@@ -1,8 +1,8 @@
 import status from './status';
 import print from './message';
 
-const form = document.querySelector('form[name="webchat"]');
-const input = document.querySelector('form[name="webchat"] input');
+const form = document.querySelector('form[name="chat"]');
+const input = document.querySelector('form[name="chat"] input');
 const sendButton = document.querySelector('button[type="submit"]');
 
 const socket = io('', {
