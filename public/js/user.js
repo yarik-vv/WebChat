@@ -148,13 +148,12 @@
 "use strict";
 
 
-var list = document.querySelector('nav.menu');
+var list = document.querySelector('nav');
 list.addEventListener('click', remove);
 
 function remove(event) {
   var id = event.target.name;
-  //console.log('[user.js] id: '+id);
-  //console.log(event.target.className);
+
   if (event.target.className === 'remove') {
     __webpack_require__.e/* require.ensure */(0/* duplicate */).then((function (require) {
       var AJAXrequest = __webpack_require__(0);

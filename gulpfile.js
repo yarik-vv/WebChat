@@ -45,14 +45,6 @@ gulp.task('images', function() {
 
 gulp.task('saas', function() {
   return gulp.src('frontend/**/*.scss')
-//    .pipe(gulpStylelint({
-//      reporters: [
-//        {
-//          formatter: 'string',
-//          console: true
-//        }
-//      ]
-//    }))
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(sourcemaps.write())

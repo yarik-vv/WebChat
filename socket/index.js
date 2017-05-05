@@ -4,23 +4,19 @@ const sessionStore  = require('libs/sessionStore');
 const cookie = require('cookie');
 const cookieParser = require('cookie-parser');
 const User = require('models/user').User;
-const debug = require('debug')('socketio');
 const log = require('libs/log')(module);
 
 const loadUser = (session) => {
   return new Promise((resolve, reject) => {
     if (!session.user) {
-      debug("Session %s is anonymous", session.id);
+      log.debug("Session %s is anonymous", session.id);
       reject();
     }
-
-    debug("retrieving user ", session.user);
+    log.debug("Retrieving user: " + session.user);
 
     User.findById(session.user).exec((err, user) => {
       if (err) return reject(err);
       if (!user) reject();
-
-      debug("user findbyId result: " + user);
       resolve(user);
     });
   });
@@ -30,10 +26,10 @@ const checkAuth = (handshake, callback) => {
   handshake.cookies = cookie.parse(handshake.headers.cookie || '');
   const sidCookie = handshake.cookies[config.get('session:key')];
   const sid = cookieParser.signedCookie(sidCookie, config.get('session:secret'));
-  debug(sid);
+  log.debug('Sid: ' + sid);
 
   sessionStore.get(sid, (err, session) => {
-    debug(session);
+    log.debug('Session: ', session);
 
     if(!session) {
       callback(new HttpError(401, "No session"));
@@ -69,12 +65,8 @@ const socket = (server) => {
     });
   });
 
-  io.on('session:reload', (sid) => {
-    console.log('session:reload :' + sid);
-  });
-
   io.on('sessreload', (sid) => {
-    console.log('sessreload: ' + sid);
+    log.debug('Session reload: ' + sid);
 
     io.sockets.clients((err, clients) => {
       if (err) throw err;
@@ -104,17 +96,20 @@ const socket = (server) => {
   });
 
   io.on('connection', (socket) => {
-    log.info('CONECTING TO WEBSOCKETS');
     const username = socket.handshake.user.get('username');
-    log.info(username);
+    log.debug(username + ' - connected to websocket');
+    
     socket.broadcast.emit('join', username);
-    log.info('join websokets');
+    log.debug(username + ' - joined the chat');
+
     socket.on('message', (text, callback) => {
+      log.debug(username + ' - send message');
       socket.broadcast.emit('message', username, text);
       callback && callback(text);
     });
 
     socket.on('disconnect', () => {
+      log.debug(username + ' - leave the chat');
       socket.broadcast.emit('leave', username);
     });
   });

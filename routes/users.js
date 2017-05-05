@@ -8,7 +8,7 @@ const log = require('libs/log')(module);
 
 
 //check admin authorization
-//router.use('/', checkAdmin);
+router.use('/', checkAdmin);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -30,26 +30,23 @@ router.get('/:id', function(req, res, next) {
       }
       res.render('user', {user: user});
     });
-  }catch(e) {
+  }
+  catch(e) {
+    log.error('Popitka uvedet danie neizvestnogo usera');
     next(new HttpError(404, 'Netu takogo usera'));
   }
 });
 
 router.post('/', function(req, res, next){
-  log.info('router users prinal POST zapros');
-  log.info(req.body.id);
-
+  log.debug('prinato post zapros s USERS page');
   const id = req.body.id;
-  log.info('id tuta nax'+id);
 
   User.removeUser(id)
     .then(
       result => {
-        log.info('resolve');
         res.send({});
       },
       error => {
-        log.info('reject');
         next(new HttpError(500, 'ne vishlo udalit etogo uzera'));
       }
     );

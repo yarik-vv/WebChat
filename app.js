@@ -5,8 +5,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
-var errorHandler = require('errorhandler');
+const errorHandler = require('errorhandler');
 
 //custom
 const config = require('config');
@@ -50,7 +49,7 @@ app.use(cookieParser());
 
 //sesion
 app.use(session({
-  secret: config.get('session:secret'), // ABCDE242342342314123421.SHA256
+  secret: config.get('session:secret'),
   resave: false,
   saveUninitialized: true,
   key: config.get('session:key'),
@@ -95,7 +94,7 @@ app.use(function(err, req, res, next) {
 //created http server
 var server = http.createServer(app);
 server.listen((process.env.PORT || 5000), function(){
-  log.info('Server listening on http://127.0.0.1:'+ process.env.PORT);
+  log.info('Server listening on http://127.0.0.1:'+(process.env.PORT || 5000));
 });
 
 //websockets

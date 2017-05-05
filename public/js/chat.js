@@ -228,7 +228,6 @@ module.exports = websockets;
 
 "use strict";
 
-'use scrict';
 
 var chat = document.getElementById('chat');
 var scrollHeight = 999999;
@@ -283,7 +282,6 @@ module.exports = printMessage;
 
 "use strict";
 
-'use scrict';
 
 var chat = document.getElementById('chat');
 var scrollHeight = 999999;
@@ -307,7 +305,6 @@ module.exports = printStatus;
 
 "use strict";
 
-'use scrict';
 
 var _websockets = __webpack_require__(2);
 

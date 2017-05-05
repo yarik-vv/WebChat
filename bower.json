@@ -1,12 +1,11 @@
 {
-  "name": "Travelchat",
-  "description": "",
-  "main": "",
+  "name": "travelchat",
+  "main": "app.js",
   "authors": [
     "Yarik Vashchuck"
   ],
-  "license": "MIT",
-  "homepage": "",
+  "license": "GPL v3",
+  "homepage": "https://yarik-vv.herokuapp.com/",
   "ignore": [
     "**/.*",
     "node_modules",

@@ -1,4 +1,4 @@
-const list = document.querySelector('nav.menu');
+const list = document.querySelector('nav');
 list.addEventListener('click', remove);
 
 function remove(event) {

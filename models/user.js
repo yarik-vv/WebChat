@@ -7,8 +7,8 @@ const log = require('libs/log')(module);
 var schema = new Schema({
   username: {
     type: String,
-    unique: true, //unikalniy uzer
-    required: true //obazatelnoe pole
+    unique: true, 
+    required: true 
   },
   hashedPassword: {
     type: String,
@@ -25,13 +25,11 @@ var schema = new Schema({
 });
 
 schema.methods.encryptPassword = function(password) {
-  var kek= typeof password;
-  log.info(kek);
   return crypto.createHmac('sha1', this.salt).update(password).digest('hex');
 };
 
 schema.virtual('password')
-  .set(function(password) {
+  .set(function (password) {
     this._plainPassword = password;
     this.salt = Math.random() + '';
     this.hashedPassword = this.encryptPassword(password);
@@ -42,7 +40,7 @@ schema.methods.checkPassword = function(password) {
   return this.encryptPassword(password) === this.hashedPassword;
 };
 
-schema.statics.authorize=(username, password) => {
+schema.statics.authorize = (username, password) => {
   const User = this.User;
 
   return new Promise((resolve, reject) => {
@@ -52,9 +50,11 @@ schema.statics.authorize=(username, password) => {
       }
       if(user){
         if(user.checkPassword(password)){ 
+          log.info(username+' - sign in.');
           resolve(user);
         }
         else {
+          log.warn(username+' - vvel ne pravilnuy parol');
           reject(new HttpError(403, "Invalid password"));
         }
       } 
@@ -77,12 +77,13 @@ schema.statics.removeUser = (id) => {
   const User = this.User;
 
   return new Promise((resolve, reject) => {
-    log.info('user model id: '+ id);
     User.deleteOne({ "_id" : id }).exec((err) => {
       if(err){
+        log.error('Ne udalos udalit usera s id: '+id);
         reject();
       }
       else{
+        log.warn('Udalen user s id: '+id);
         resolve();
       }
     });
