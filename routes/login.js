@@ -5,7 +5,7 @@ const log = require('libs/log')(module);
 
 //get to login page
 router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Sign in Travelchat'});
+  res.render('login', { title: 'Sign in to Travelchat'});
 });
 
 router.post('/', function(req, res, next){
