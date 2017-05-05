@@ -14,6 +14,8 @@ button {
 }
 
 body {
+  background: $admin-background;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -41,11 +43,13 @@ body {
   a, 
   button {
     font-family: $primary-font;
-    color: white;
+    color: black;
     font-size: 5vh;
     background: none;
     &:hover{
-      color: black;
+      cursor: pointer;
+      color: white;
+      opacity: 1;
     }
   }
 
@@ -69,11 +73,19 @@ body {
     padding: 1vh;
     padding-left: 2vh;
     padding-right: 2vh;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 15px;
+  }
+  span{
+    background: #24e27c;
+    opacity: 80;
+  }
+  button{
+    background: #fb5757; 
+    opacity: .50;
   }
 }
 
 .menu {
-  @include menu(black, white);
+  @include menu(white,black);
 }

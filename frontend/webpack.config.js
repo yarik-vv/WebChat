@@ -53,9 +53,7 @@ module.exports = {
         use: [{
           loader: "babel-loader",
           options: {
-            presets: [
-              ['es2015', { modules: false }]
-            ]
+            presets: ['es2015']
           }
         }]
       },
@@ -77,6 +75,7 @@ module.exports = {
 //    }),
     //new BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({ title: 'Tree-shaking' }),
+    //, ['es2015', { modules: false }]
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)

@@ -1,10 +1,11 @@
 @import '../shared/mixins';
 
 #user {
-  @include button(white, white);
+  @include button(black, black);
   margin-top: 10vh;
   margin-bottom: 15vh;
   p {
     margin: 2vh;
   }
+  background: #f8f8f8;
 }
