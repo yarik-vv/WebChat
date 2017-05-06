@@ -50,7 +50,7 @@ form[name="chat"] {
   border-radius: 10px;
 }
 
-ul {
+#chat {
   @include flex(column, none, none);
 
   height: 59vh;
@@ -135,13 +135,16 @@ footer {
     border-radius: 0;
     border: 0;
   }
+
   form[name="chat"] {
     width: 100vw;
     height: 96.5vh;
   }
-  ul {
+
+  #chat {
     height: 88vh;
     border: 0;
+    
     li {
       max-width: 75vw;
     }

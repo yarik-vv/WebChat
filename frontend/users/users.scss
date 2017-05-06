@@ -19,7 +19,7 @@ body {
   margin-top: 5vh;
 }
 
-.list {
+#list {
   margin: 2vh;
 
   div {
@@ -75,6 +75,6 @@ body {
   }
 }
 
-.menu {
+nav {
   @include menu(white,black);
 }

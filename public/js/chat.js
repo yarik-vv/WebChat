@@ -203,11 +203,11 @@ function websockets() {
   }).on('logout', function () {
     location.href = "/";
   }).on('error', function (reason) {
-    if (reason == "handshake unauthorized") {
-      (0, _status2.default)("You leave the chat");
+    if (reason == 'handshake unauthorized') {
+      (0, _status2.default)("You leave the chat.");
     }
   }).on('reconnect_failed', function () {
-    (0, _status2.default)("Connection lost", "#f1d6ee");
+    (0, _status2.default)("Connection lost.", "#f1d6ee");
   });
 
   function send() {
@@ -230,7 +230,7 @@ module.exports = websockets;
 
 'use scrict';
 
-var chat = document.getElementById('room');
+var chat = document.getElementById('chat');
 var scrollHeight = 999999;
 
 function currentTime() {
@@ -240,31 +240,36 @@ function currentTime() {
   if (minutes < 10) {
     minutes = '0' + date.getMinutes();
   }
+
   return hours + ':' + minutes;
 }
 
 function printMessage(text, username) {
   var message = document.createElement('li');
   message.className = 'message';
-  if (username == 'you') {
+
+  if (username === 'you') {
     message.style.alignSelf = 'flex-end';
     message.style.backgroundColor = '#5dd0e1';
     message.style.borderBottomRightRadius = '0';
   } else {
     message.style.alignSelf = 'flex-start';
     message.style.backgroundColor = '#fcfd45';
-    message.style.borderBottomLeftRadius = '0px';
+    message.style.borderBottomLeftRadius = '0';
   }
+
   message.innerHTML = text;
   chat.appendChild(message);
 
   var description = document.createElement('span');
   description.className = 'description';
-  if (username == 'you') {
+
+  if (username === 'you') {
     description.style.alignSelf = 'flex-end';
   } else {
     description.style.alignSelf = 'flex-start';
   }
+
   description.innerHTML = username + ', ' + currentTime();
   chat.appendChild(description);
   chat.scrollTop = scrollHeight;
@@ -280,14 +285,16 @@ module.exports = printMessage;
 
 'use scrict';
 
-var chat = document.getElementById('room');
+var chat = document.getElementById('chat');
 var scrollHeight = 999999;
 
 function printStatus(status, color) {
   var statusMessage = document.createElement('li');
+
   statusMessage.className = 'log';
   statusMessage.style.backgroundColor = color;
   statusMessage.innerHTML = status;
+
   chat.appendChild(statusMessage);
   chat.scrollTop = scrollHeight;
 }
@@ -320,15 +327,6 @@ document.getElementById('logout').onclick = function () {
     var AJAXrequest = __webpack_require__(0);
     AJAXrequest('logout');
     location.href = "/";
-    //      .then(
-    //        result => {
-    //          window.location.href = '/';
-    //        },
-    //        error => {
-    //          alert('beda');
-    //        }
-    //      );
-    //      return false;
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 

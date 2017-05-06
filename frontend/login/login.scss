@@ -1,6 +1,6 @@
 @import '../shared/saas/mixins.scss';
 
-.signin {
+#signin {
   @include flex(column);
 
   width: 100%;
@@ -84,8 +84,8 @@ form[name="login"] {
   position: relative;
   margin-top: 2vh;
   color: #fb5757;
-  font-family: $secondary-font;
-  font-size: 3vh;
+  font-size: 2.8vh;
+  text-align: center;
   height: 3vh;
 }
 

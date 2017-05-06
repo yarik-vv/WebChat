@@ -10,7 +10,7 @@ block content
       p='Id: ' + user.id
       p='Hash: ' + user.hashedPassword
       p='Registration date: ' + user.created
-    nav.menu
+    nav
       a(href='/users')= 'Back to users list'
       a.remove(name=user.id)= 'Remove this user'
       a(href='/webchat')= 'Go to Travelchat'

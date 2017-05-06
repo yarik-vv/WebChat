@@ -1,18 +1,16 @@
-'use strict';
-
 import submitOff from '../shared';
 submitOff('form[name="login"]')
 
 document.getElementById('login').onclick = () => {
-  require.ensure([], (require) => {
-    var AJAXrequest = require('../request');
+  require.ensure([], require => {
+    const AJAXrequest = require('../request');
     AJAXrequest('login')
       .then(
         result => {
           window.location.href = '/travelchat';
         },
         error => {
-          document.getElementById('error').innerHTML = message;
+          document.getElementById('error').innerHTML = 'There was a problem with your password';
         }
       );
     return false;

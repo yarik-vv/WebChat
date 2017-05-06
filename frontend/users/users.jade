@@ -4,14 +4,14 @@ block content
   link(rel='stylesheet', href='/css/users.css')
   body
     p#title= 'Registered users list:'
-    div.list#list
+    div#list
       for user in users
         div(id=user.id)
           a(href='/users/'+user.id)
             span#username= user.username
             span#id= 'id: ' + user.id
-          button.remove(name=user.id, data-action="suka")= 'Remove this user'
-    nav.menu
+          button.remove(name=user.id)= 'Remove this user'
+    nav
       a(href='/webchat')= 'Go to Travelchat'
       a(href='/logout')= 'Logout'
     script(src='/js/users.js')

@@ -7,8 +7,8 @@ block content
       header
         button#logout
           div#logout-hover
-      form(name='chat', action="")
-        ul#room
+      form(name='chat')
+        ul#chat
         footer
           input(
             type="text",
@@ -20,7 +20,7 @@ block content
           )
           button.icon-send(
             type='submit',
-            data-loading-text="Отправляю..."
+            data-loading-text="Sending..."
           )
     script(src='/vendor/socket.io-client/dist/socket.io.min.js')
     script(src='/js/chat.js')

@@ -15,10 +15,10 @@ function websockets () {
     .on('message', (username, message) => {
       print(message, username);
     })
-    .on('leave', (username) => {
+    .on('leave', username => {
       status(username + " leave the chat", "#d6f1e9");
     })
-    .on('join', (username) => {
+    .on('join', username => {
       status(username + " joined the chat", "#d6f1e9");
     })
     .on('connect', () => {
@@ -36,18 +36,18 @@ function websockets () {
     .on('logout', () => {
       location.href = "/";
     })
-    .on('error', (reason) => {
-      if (reason == "handshake unauthorized") {
-        status("You leave the chat");
+    .on('error', reason => {
+      if (reason == 'handshake unauthorized') {
+        status("You leave the chat.");
       }
     })
     .on('reconnect_failed', function () {
-      status("Connection lost", "#f1d6ee");
+      status("Connection lost.", "#f1d6ee");
     });
 
   function send(){
     const text = input.value;
-    socket.emit('message', text, function (data) {
+    socket.emit('message', text, data => {
       print(data, 'you')
     });
     input.value = '';

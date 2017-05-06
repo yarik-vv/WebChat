@@ -1,5 +1,3 @@
-'use strict';
-
 function AJAXrequest(id){
   return new Promise(function(resolve, reject) {
     if(id==='login'){
@@ -19,21 +17,17 @@ function AJAXrequest(id){
     let request = new XMLHttpRequest();
     request.onreadystatechange = function() {
       if(request.readyState === XMLHttpRequest.DONE) {
-        console.log(request.readyState, request.status, request.responseText);
-        console.log(request.responseText);
         if(request.status===200){
           resolve();
         }
         else{
-          //let message = request.responseText.message;
-          reject();
+          reject(new Error(request.responseText));
         }
       }
     };
     request.open('POST', path);
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded', "text/html");
     request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    console.log('[request.js] start request with data: '+data);
     request.send(data);
   });
 }
