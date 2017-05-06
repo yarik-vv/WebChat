@@ -1,11 +1,12 @@
-@import '../shared/mixins';
+@import '../shared/saas/mixins.scss';
 
 #user {
   @include button(black, black);
-  margin-top: 10vh;
-  margin-bottom: 15vh;
-  p {
-    margin: 2vh;
-  }
+
+  margin: 13vh 0vh 15vh 0vh;
   background: #f8f8f8;
+
+  p {
+    margin: 1.5vh;
+  }
 }

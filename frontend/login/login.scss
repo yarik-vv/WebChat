@@ -1,10 +1,10 @@
-@import '../shared/mixins';
+@import '../shared/saas/mixins.scss';
 
 .signin {
-  width: 100%;
-  //margin-bottom: 1vh;
+  @include flex(column);
 
-  @include flex-center(column);
+  width: 100%;
+  color: white;
 
   #logo{
     margin-top: 8vh;
@@ -15,79 +15,65 @@
   h1 {
     font-family: $bold-font;
     font-weight: 400;
-    margin: 1vh;
-    margin-top: 2.5vh;
+    margin: 2.5vh 1vh 1vh 1vh;
     font-size: 5vh;
-    color: white;
   }
 
   p {
     font-family: $secondary-font;
-    color: white;
     font-size: 3.4vh;
-
-    margin-top: .5vh;
-    margin-bottom: 1.5vh;
-  }
-
-  i {
-    font-size: 13vh;
-    color: white;
+    margin: .5vh 0 1.5vh 0;
   }
 }
 
 form[name="login"] {
+  @include flex(column, none, center);
+
   width: 51vh;
   height: 100vh;
 
   position: relative;
   top: -5vh;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  //@include flex-center(column);
-  //justify-content: flex-start;
-
   input {
     width: 92%;
     height: 4vh;
+
     outline: none;
     border: none;
-    padding: 2vh;
-    padding-top: 1.5vh;
-    padding-bottom: 1.5vh;
+    padding: 1.5vh 2vh 1.5vh 2vh;
     font-family: $bold-font;
     font-size: 3vh;
   }
 
   input[type="text"] {
-    border-radius: 0px;
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
+    border-radius: 6px 6px 0 0;
   }
 
   input[type="password"] {
     width: 78.5%;
-    border-radius: 0px;
-    border-bottom-left-radius: 6px;
+    border-radius: 0 0 0 6px;
   }
 
   #password {
-    @include flex-center(row);
+    @include flex(row);
+
     margin-top: 2px;
     width: 99.9%;
   }
 
   button {
     height: 7vh;
+    
     background: none;
     border: none;
     outline: none;
+
     font-size: 5vh;
     color: gray;
     background: white;
     border-bottom-right-radius: 6px;
+
     &:hover{
       color: #26fa88;
     }
@@ -104,7 +90,8 @@ form[name="login"] {
 }
 
 .links {
-  @include flex-center(row);
+  @include flex(row);
+
   position: relative;
   top: 24vh;
   
@@ -112,6 +99,7 @@ form[name="login"] {
   color: white;
   font-size: 4vh;
   text-decoration: none;
+
   &:hover {
     color: black;
   }}

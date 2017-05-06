@@ -1,24 +1,14 @@
-@import '../shared/mixins';
+@import '../shared/saas/mixins.scss';
 
-html, 
-body {
+html, body {
   overflow: auto;
 }
 
-a, 
-div, 
-span, 
-button {
-  padding: 0;
-  margin: 0;
-}
-
 body {
+  @include flex(column, flex-start, none);
+
   background: $admin-background;
   background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
 }
 
 #title {
@@ -33,19 +23,17 @@ body {
   margin: 2vh;
 
   div {
+    @include flex(row, space-between, center);
+
     margin: 1vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
   }
   
-  a, 
-  button {
+  a, button {
     font-family: $secondary-font;
     color: black;
     font-size: 5vh;
     background: none;
+    
     &:hover{
       cursor: pointer;
       color: white;
@@ -70,16 +58,17 @@ body {
   }
   
   span, button {
-    padding: 1vh;
-    padding-left: 2vh;
-    padding-right: 2vh;
+    padding: 1vh 2vh 1vh 2vh;
+
     border: 1px solid black;
     border-radius: 15px;
   }
+
   span{
     background: #24e27c;
     opacity: 80;
   }
+
   button{
     background: #fb5757; 
     opacity: .50;

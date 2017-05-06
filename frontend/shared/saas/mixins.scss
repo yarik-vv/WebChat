@@ -1,15 +1,10 @@
-$primary-font: Regular, sans-serif;
-$secondary-font: Light, sans-serif;
-$bold-font: Bold, sans-serif;
+@import 'variables';
 
-$background: url("../background.jpg") center fixed;
-$admin-background: url('../admin-panel-background.jpg') center fixed;
-
-@mixin flex-center($direction){
+@mixin flex($direction: row, $justify-content: center, $align-items: center){
   display: flex;
   flex-direction: $direction;
-  justify-content: center;
-  align-items: center;
+  justify-content: $justify-content;
+  align-items: $align-items;
 }
 
 @mixin button($color, $hover-color){
@@ -40,8 +35,6 @@ $admin-background: url('../admin-panel-background.jpg') center fixed;
 
   a{
     color: $color;
-    //font-family: $secondary-font;
-    //font-family: $message-font;
     font-size: 5vh;
     text-decoration: none;
 
