@@ -13,7 +13,7 @@
   }
 
   h1 {
-    font-family: $secondary-font;
+    font-family: $bold-font;
     font-weight: 400;
     margin: 1vh;
     margin-top: 2.5vh;
@@ -22,7 +22,7 @@
   }
 
   p {
-//    font-family: $primary-font;
+    font-family: $secondary-font;
     color: white;
     font-size: 3.4vh;
 
@@ -57,6 +57,7 @@ form[name="login"] {
     padding: 2vh;
     padding-top: 1.5vh;
     padding-bottom: 1.5vh;
+    font-family: $bold-font;
     font-size: 3vh;
   }
 
@@ -67,6 +68,7 @@ form[name="login"] {
   }
 
   input[type="password"] {
+    width: 78.5%;
     border-radius: 0px;
     border-bottom-left-radius: 6px;
   }

@@ -1,8 +1,9 @@
-$primary-font: Bubbler One, sans-serif;
-$secondary-font: Ubuntu, sans-serif;
+$primary-font: Regular, sans-serif;
+$secondary-font: Light, sans-serif;
+$bold-font: Bold, sans-serif;
+
 $background: url("../background.jpg") center fixed;
 $admin-background: url('../admin-panel-background.jpg') center fixed;
-$message-font: Message, sans-serif;
 
 @mixin flex-center($direction){
   display: flex;
@@ -13,7 +14,7 @@ $message-font: Message, sans-serif;
 
 @mixin button($color, $hover-color){
   color: $color;
-  font-family: $primary-font;
+  font-family: $secondary-font;
   font-size: 5vh;
   text-decoration: none;
 
@@ -39,7 +40,8 @@ $message-font: Message, sans-serif;
 
   a{
     color: $color;
-    font-family: $primary-font;
+    //font-family: $secondary-font;
+    //font-family: $message-font;
     font-size: 5vh;
     text-decoration: none;
 

@@ -22,7 +22,7 @@ body {
 }
 
 #title {
-  font-family: Ubuntu, sans-serif;
+  font-family: $bold-font;
   text-align: center;
   font-size: 5vh;
   color: white;
@@ -42,7 +42,7 @@ body {
   
   a, 
   button {
-    font-family: $primary-font;
+    font-family: $secondary-font;
     color: black;
     font-size: 5vh;
     background: none;
