@@ -1,12 +1,19 @@
 const assert = require('assert');
 const checkAuth = require('middleware/checkAuth');
 const checkAdmin = require('middleware/checkAdmin');
+const loadUser = require('middleware/loadUser');
 
 const reqT = {
   'session': {
     'user': {
-      'username': 'name'
+      'username': 'admin'
     }
+  }
+}
+
+var res = {
+  'locals': {
+    'user': 'admin'
   }
 }
 
@@ -21,7 +28,7 @@ describe('Middleware:', () => {
         undefined, 
         checkAuth(reqT, 'res', () => {return true})
       )
-    });
+    });  
 
     it('if user is not yet authorized', () => {
       assert.equal(
@@ -31,19 +38,36 @@ describe('Middleware:', () => {
     });
   });
 
+  describe('#load user module(loadUser.js):', () => {
+    it('user is loaded', () => {
+      assert.equal(
+        undefined, 
+        loadUser(reqT, res, () => {return res.locals.user})
+      );
+    });
+
+    it('user is not loaded', () => {
+      assert.equal(
+        null, 
+        loadUser(reqF, res, () => {return res.locals.user})
+      );
+    });
+  });
+
   describe('#check administrator permission module(checkAdmin.js):', () => {
     it('if user is an administrator', () => {
       assert.equal(
         undefined, 
-        checkAdmin(reqT, 'res', () => {return true})
+        checkAdmin(reqT, res, () => {return true})
       );
     });
 
     it('if user is not an administrator', () => {
       assert.equal(
         true, 
-        checkAdmin(reqF, 'res', () => {return true})
+        checkAdmin(reqF, res, () => {return true})
       );
     });
   });
+
 });
