@@ -1,9 +1,12 @@
 const assert = require('assert');
 const checkAuth = require('middleware/checkAuth');
+const checkAdmin = require('middleware/checkAdmin');
 
 const reqT = {
-  "session": {
-    "user": 'test'
+  'session': {
+    'user': {
+      'username': 'name'
+    }
   }
 }
 
@@ -24,6 +27,22 @@ describe('Middleware:', () => {
       assert.equal(
         true, 
         checkAuth(reqF, 'res', () => {return true})
+      );
+    });
+  });
+
+  describe('#check administrator permission module(checkAdmin.js):', () => {
+    it('if user is an administrator', () => {
+      assert.equal(
+        undefined, 
+        checkAdmin(reqT, 'res', () => {return true})
+      );
+    });
+
+    it('if user is not an administrator', () => {
+      assert.equal(
+        true, 
+        checkAdmin(reqF, 'res', () => {return true})
       );
     });
   });

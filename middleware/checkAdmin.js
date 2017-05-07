@@ -8,14 +8,14 @@ module.exports = (req, res, next) => {
     return next(new HttpError(401, "you are not authorized to view this page!"));
   }
   User.findById(req.session.user, function(err, user) {
-    if(user.username=='admin'){
+    if(err) return next(err);
+    else if(user.username=='admin'){
       log.info('Admin v zdanii!');
+      next();
     }
     else{
       log.warn('Ne imeyoushiy prav user pitalsa zayti v admin panel!');
       return next(new HttpError(401, "you are not authorized to view this page!"));
     };
-    if(err) return next(err);
-    next();
   });
 };
