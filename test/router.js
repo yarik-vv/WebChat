@@ -32,4 +32,14 @@ describe('Router tests(availability of the application):', () => {
       }) 
   });
 
+  it('attempt to go to a non-existent page', (done) => {
+    chai.request(app)
+      .get('/kek')
+      .end((err, res) => {
+        expect(res).to.redirect;
+        expect(res).to.be.html;
+        done();
+      }) 
+  });
+
 });
