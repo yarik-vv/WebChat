@@ -21,8 +21,8 @@ const reqF = {
   "session": {}
 }
 
-describe('Middleware:', () => {
-  describe('#check authorization module(checkAuth.js):', () => {
+describe('Middleware tests:', () => {
+  describe('-authorization module(checkAuth.js):', () => {
     it('if user is already authorized', () => {
       assert.equal(
         undefined, 
@@ -38,7 +38,7 @@ describe('Middleware:', () => {
     });
   });
 
-  describe('#load user module(loadUser.js):', () => {
+  describe('-load user module(loadUser.js):', () => {
     it('user is loaded', () => {
       assert.equal(
         undefined, 
@@ -54,7 +54,7 @@ describe('Middleware:', () => {
     });
   });
 
-  describe('#check administrator permission module(checkAdmin.js):', () => {
+  describe('-administrator permission module(checkAdmin.js):', () => {
     it('if user is an administrator', () => {
       assert.equal(
         undefined, 

@@ -12,7 +12,6 @@ const config = require('config');
 const HttpError = require('error').HttpError;
 const session = require('express-session');
 const sessionStore = require('libs/sessionStore');
-const debug = require('debug')(app);
 const http = require('http');
 const log = require('libs/log')(module);
 
@@ -100,3 +99,5 @@ server.listen((process.env.PORT || 5000), function(){
 //websockets
 const io = require('socket')(server);
 app.set('io', io);
+
+module.exports = app;
