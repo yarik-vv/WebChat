@@ -1,3 +1,5 @@
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+
 function AJAXrequest(id){
   return new Promise(function(resolve, reject) {
     if(id==='login'){
@@ -9,6 +11,8 @@ function AJAXrequest(id){
         var data = '';
         var path = '/logout';
     }
+    //uncoment for tests
+    else if(id==='test'){var data = 'id=test';var path = 'http://127.0.0.1:4000/';}
     else{
       var data = "id=" + encodeURIComponent(id);
       var path = '/users';
