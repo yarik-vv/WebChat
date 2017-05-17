@@ -5,3 +5,4 @@
 /public/vendor
 /public/css
 npm-debug.log
+.DS_Store
