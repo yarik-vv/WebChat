@@ -1,9 +1,12 @@
-webpackJsonp([0],[
-/* 0 */
+webpackJsonp([0],{
+
+/***/ 0:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+var XMLHttpRequest = __webpack_require__(9);
 
 function AJAXrequest(id) {
   return new Promise(function (resolve, reject) {
@@ -14,6 +17,9 @@ function AJAXrequest(id) {
     } else if (id === 'logout') {
       var data = '';
       var path = '/logout';
+    } else if (id === 'test') {
+      var data = 'id=test';
+      var path = 'http://127.0.0.1:4000/';
     } else {
       var data = "id=" + encodeURIComponent(id);
       var path = '/users';
@@ -46,5 +52,14 @@ function serialize(selectForm) {
 
 module.exports = AJAXrequest;
 
+/***/ }),
+
+/***/ 9:
+/***/ (function(module, exports) {
+
+module.exports = XMLHttpRequest;
+
+
 /***/ })
-]);
+
+});
