@@ -3,7 +3,7 @@ const ioserver = require('socket.io').listen(3000);
 ioserver.sockets.on('connection', (socket) => {});
 
 //import websocket client
-const io = require('socket.io-client');
+const io = require('../public/vendor/socket.io-client/');
 const url = 'http://127.0.0.1:3000';
 
 //test connection
