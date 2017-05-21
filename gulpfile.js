@@ -4,8 +4,8 @@ const gulp = require('gulp');
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
 const sourcemaps = require('gulp-sourcemaps');
-const gulpStylelint = require('gulp-stylelint');
 const rename = require("gulp-rename");
+const gulpIf = require('gulp-if');
 const sass = require('gulp-sass');
 const del = require('del');
 
@@ -45,9 +45,9 @@ gulp.task('images', function() {
 
 gulp.task('saas', function() {
   return gulp.src('frontend/**/*.scss')
-    .pipe(sourcemaps.init())
+    .pipe(gulpIf(isDevelopment, sourcemaps.init()))	
     .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write())
+    .pipe(gulpIf(isDevelopment, sourcemaps.write()))
     .pipe(rename({
       dirname: "css"
     }))
