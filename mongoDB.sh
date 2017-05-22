@@ -1,2 +1,7 @@
 #!/bin/bash
-sudo service mongod start
+
+# for linux
+#sudo service mongod start
+
+# for macOS
+sudo mongod
