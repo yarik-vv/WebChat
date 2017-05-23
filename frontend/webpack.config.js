@@ -52,7 +52,6 @@ module.exports = {
   },
     
   plugins: [
-    new BundleAnalyzerPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
@@ -62,6 +61,7 @@ module.exports = {
   
 if (NODE_ENV == 'production') {
   module.exports.plugins.push(
+    new BundleAnalyzerPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
