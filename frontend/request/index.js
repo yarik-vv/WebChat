@@ -1,5 +1,3 @@
-const XMLHttpRequest = require('xhr2');
-
 function AJAXrequest(id){
   return new Promise(function(resolve, reject) {
     if(id==='login'){
@@ -11,9 +9,12 @@ function AJAXrequest(id){
         var data = '';
         var path = '/logout';
     }
-    else if(id==='test'){
-      var data = 'id=test';
-      var path = 'http://127.0.0.1:4000/';
+    else if(NODE_ENV == 'development'){
+      if(id==='test'){
+        const XMLHttpRequest = require('xhr2');
+        const data = 'id=test';
+        const path = 'http://127.0.0.1:4000/';
+      }
     }
     else{
       var data = "id=" + encodeURIComponent(id);
