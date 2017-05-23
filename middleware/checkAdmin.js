@@ -11,6 +11,10 @@ module.exports = (req, res, next) => {
     if(err){
       return next(err);
     }
+    else if(user == null){
+      log.warn('Ne imeyoushiy prav user(no s session) pitalsa zayti v admin panel!');
+      return next(new HttpError(401, "you are not authorized to view this page!"));
+    }
     else if(user.username=='admin'){
       log.info('Admin v zdanii!');
       next();
