@@ -1,30 +1,35 @@
 function AJAXrequest(id){
   return new Promise(function(resolve, reject) {
+    
+    if(process.env.NODE_ENV == 'test'){
+      const xhr = require('xhr2');
+      var request = new xhr();
+    }
+    else{
+      var request = new XMLHttpRequest();
+    }
+
     if(id==='login'){
       var form = document.forms['login'];
       var data = serialize(form);
       var path = '/';
     }
     else if(id==='logout'){
-        var data = '';
-        var path = '/logout';
+      var data = '';
+      var path = '/logout';
     }
-    else if(NODE_ENV == 'development'){
-      if(id==='test'){
-        const XMLHttpRequest = require('xhr2');
-        const data = 'id=test';
-        const path = 'http://127.0.0.1:4000/';
-      }
+    else if(process.env.NODE_ENV == 'test' && id==='test'){
+      var data = 'id=test';
+      var path = 'http://127.0.0.1:4000/';
     }
     else{
       var data = "id=" + encodeURIComponent(id);
       var path = '/users';
     }
 
-    let request = new XMLHttpRequest();
     request.onreadystatechange = function() {
-      if(request.readyState === XMLHttpRequest.DONE) {
-        if(request.status===200){
+      if(request.readyState === 4) {
+        if(request.status === 200){
           resolve();
         }
         else{
