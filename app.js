@@ -100,5 +100,7 @@ server.listen((process.env.PORT || 5000), function(){
 const io = require('socket')(server);
 app.set('io', io);
 
-//uncomment export for tests applicattion
-module.exports = app;
+//exports module for tests
+if(process.env.NODE_ENV == 'test'){
+  module.exports = app;
+}
