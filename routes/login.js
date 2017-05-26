@@ -4,11 +4,12 @@ const User = require('models/user').User;
 const log = require('libs/log')(module);
 
 //get to login page
-router.get('/', function(req, res, next) {
-  res.render('login', { title: 'Sign in to Travelchat'});
+router.get('/', (req, res, next) => {
+  res.render('login', {title: 'Sign in to Travelchat'});
 });
 
-router.post('/', function(req, res, next){
+//post request to login page
+router.post('/', (req, res, next) => {
   log.debug('prinato post zapros s LOGIN page');
 
   const username = req.body.username;
