@@ -2,7 +2,7 @@
   "name": "travelchat",
   "main": "app.js",
   "authors": [
-    "Yarik Vashchuck"
+    "Yarik Vashchuk"
   ],
   "license": "GPL v3",
   "homepage": "https://yarik-vv.herokuapp.com/",
@@ -11,8 +11,7 @@
     "node_modules",
     "bower_components",
     "public/vendor/",
-    "test",
-    "tests"
+    "test"
   ],
   "dependencies": {
     "socket.io-client": "^1.7.2"
