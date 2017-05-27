@@ -1,4 +1,4 @@
-var User = require('models/user').User;
+const User = require('models/user').User;
 const HttpError = require('error').HttpError;
 const log = require('libs/log')(module);
 
@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
     log.warn('Neavtorizovaniy user pitalsa zayti v admin panel!');
     return next(new HttpError(401, "you are not authorized to view this page!"));
   }
-  User.findById(req.session.user, function(err, user) {
+  User.findById(req.session.user, (err, user) => {
     if(err){
       return next(err);
     }
@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
       log.warn('Ne imeyoushiy prav user(no s session) pitalsa zayti v admin panel!');
       return next(new HttpError(401, "you are not authorized to view this page!"));
     }
-    else if(user.username=='admin'){
+    else if(user.username == 'admin'){
       log.info('Admin v zdanii!');
       next();
     }

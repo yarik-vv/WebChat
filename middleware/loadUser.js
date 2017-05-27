@@ -1,4 +1,4 @@
-var User = require('models/user').User;
+const User = require('models/user').User;
 
 module.exports = (req, res, next) => {
   req.user = res.locals.user = null;
@@ -9,9 +9,8 @@ module.exports = (req, res, next) => {
 
   User.findById(req.session.user, (err, user) => {
     if (err) {
-      return next(err)
+      return next(err);
     };
-
     req.user = res.locals.user = user;
     next();
   });
