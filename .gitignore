@@ -4,5 +4,6 @@
 /frontend/build
 /public/vendor
 /public/css
+/views
 npm-debug.log
 .DS_Store
