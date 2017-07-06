@@ -1,9 +1,8 @@
+.DS_Store
 /node_modules
+npm-debug.log
 /bower_components
 /.vscode
-/frontend/build
-/public/vendor
-/public/css
+/public
 /views
-npm-debug.log
-.DS_Store
+/frontend/build
