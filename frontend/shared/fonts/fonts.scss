@@ -1,33 +1,31 @@
+@import '../saas/mixins';
+
 @font-face {
-  font-family: 'Regular';
-  font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/Regular-cyrillic.woff2") format("woff2"), 
-       url("../fonts/Regular-latin.woff") format("woff");
+  @include font('Regular', 300, 
+    '../fonts/Regular-cyrillic.woff2', 
+    '../fonts/Regular-cyrillic.woff'
+  );
   unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 
 @font-face {
-  font-family: 'Regular';
-  font-style: normal;
-  font-weight: 300;
-  src: url("../fonts/Regular-latin.woff2") format("woff2"), 
-       url("../fonts/Regular-latin.woff") format("woff");
+  @include font('Regular', 300, 
+    '../fonts/Regular-latin.woff2', 
+    '../fonts/Regular-latin.woff'
+  );
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
 }
 
 @font-face {
-  font-family: 'Light';
-  src: url("../fonts/Light.woff2") format("woff2"), 
-       url("../fonts/Light.woff") format("woff");
-  font-style: normal;
-  font-weight: 400;
+  @include font('Light', 400, 
+    '../fonts/Light.woff2', 
+    '../fonts/Light.woff'
+  );
 }
 
 @font-face {
-  font-family: 'Bold';
-  src: url("../fonts/Bold.woff2") format("woff2"), 
-       url("../fonts/Bold.woff") format("woff");
-  font-style: normal;
-  font-weight: 400;
+  @include font('Bold', 400, 
+    '../fonts/Bold.woff2', 
+    '../fonts/Bold.woff'
+  );
 }
