@@ -1,7 +1,6 @@
 {
   "mongoose": {
     "uri": "mongodb://localhost/chat",
-    "otherUri": "mongodb://yarik-vv:1@ds141950.mlab.com:41950/chat",
     "options": {
       "server": {
         "socketOptions": {
