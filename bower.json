@@ -1,11 +1,16 @@
 {
   "name": "travelchat",
+  "version": "1.0.0",
   "main": "app.js",
   "authors": [
     "Yarik Vashchuk"
   ],
-  "license": "GPL v3",
-  "homepage": "https://yarik-vv.herokuapp.com/",
+  "license": "GPL-3.0",
+  "homepage": "https://travel-chat.herokuapp.com/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yarik-vv/travelchat.git"
+  },
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,5 +20,6 @@
   ],
   "dependencies": {
     "socket.io-client": "^1.7.2"
-  }
+  },
+  "private": true
 }
