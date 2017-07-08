@@ -42,8 +42,10 @@
 
   a {
     @include button($color, $hover-color);
+    @include flex(row, center, center);
 
     font-family: $primary-font;
+    text-align: center;
     margin: 0 5vh 0 5vh;
   }
 }
