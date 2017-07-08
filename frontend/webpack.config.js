@@ -1,5 +1,6 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
@@ -55,7 +56,8 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       NODE_ENV: JSON.stringify(NODE_ENV)
-    })
+    }),
+    new CleanWebpackPlugin(__dirname + '/build/*'),
   ]
 };
   
