@@ -1,17 +1,22 @@
-## [Travelchat](https://yarik-vv.herokuapp.com/)
-My first node js application.
+## [Travelchat](https://travel-chat.herokuapp.com/)
+My first NodeJS application for people who are traveling. 
+>The application is under development.
 
-## Usage:
-``` bash
-# install dependencies
-npm install
+## Stack technologies:
+- Express 4 and socket.io for server; 
+- MongoDB as a database;
+- Mongoose for database management;
+- Jade(Pug) for templates;
+- Webpack 2 for build JavaScript;
+- Gulp 4 for build all frontend;
+- Mocha and Chai for tests.
 
-# serve at localhost:5000
-npm run server
-
-# gulp build for development
-npm run build
-
-# run all tests
-npm test
-```
+## Usage guide:
+- `$ npm install` - install dependencies;
+- `$ npm run server` - serve at localhost:5000;
+- `$ npm run database` - start MongoDB;
+- `$ npm run dev` - build for development;
+- `$ npm run build` - build for production;
+- `$ npm test` - run all tests;
+- `$ npm run push` - push to github;
+- `$ npm run heroku` - deploy to heroku.
