@@ -13,7 +13,7 @@ My first NodeJS application for people who are traveling.
 
 ## Usage guide:
 - `$ npm install` - install dependencies;
-- `$ npm run server` - serve at localhost:5000;
+- `$ npm run server` - serve at `localhost:5000`;
 - `$ npm run database` - start MongoDB;
 - `$ npm run dev` - build for development;
 - `$ npm run build` - build for production;
