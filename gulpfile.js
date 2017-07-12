@@ -53,7 +53,7 @@ gulp.task('images', () => {
     .pipe(gulp.dest('./public'));
 });
 
-gulp.task('saas', () => {
+gulp.task('sass', () => {
   return gulp.src('frontend/**/*.scss')
     .pipe(gulpIf(isDevelopment, sourcemaps.init()))	
     .pipe(sass().on('error', sass.logError))
@@ -99,7 +99,7 @@ gulp.task('js', () => {
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('build', gulp.series('clean', 'templates', 'fonts', 'images', 'saas', 'webpack', 'js'));
+gulp.task('build', gulp.series('clean', 'templates', 'fonts', 'images', 'sass', 'webpack', 'js'));
 
 gulp.task('dev', 
   gulp.series(
@@ -108,7 +108,7 @@ gulp.task('dev',
       gulp.watch('frontend/**/*.jade', gulp.series('templates'));
       gulp.watch('frontend/**/*.{woff,woff2}', gulp.series('fonts'));
       gulp.watch('frontend/**/*.{jpg,png,svg}', gulp.series('images'));
-      gulp.watch('frontend/**/*.scss', gulp.series('saas'));
+      gulp.watch('frontend/**/*.scss', gulp.series('sass'));
       gulp.watch('frontend/**/*.js', gulp.series('js'));
     })
   )
