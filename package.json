@@ -18,8 +18,7 @@
     "dev": "NODE_ENV=development gulp dev",
     "build": "NODE_ENV=production gulp build",
     "test": "NODE_ENV=test NODE_PATH=. mocha",
-    "heroku": "sudo sh heroku.sh",
-    "push": "sudo sh push.sh"
+    "heroku": "sudo sh heroku.sh"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
