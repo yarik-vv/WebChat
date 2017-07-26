@@ -18,5 +18,4 @@ My first NodeJS application for people who are traveling.
 - `$ npm run dev` - build for development;
 - `$ npm run build` - build for production;
 - `$ npm test` - run all tests;
-- `$ npm run push` - commit all changes and push to github;
 - `$ npm run heroku` - deploy to heroku.
